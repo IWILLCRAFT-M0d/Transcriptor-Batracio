@@ -101,9 +101,11 @@ din.addEventListener("keyup", e => {
     //Desactiva y activa los botones de mezclar al escribir
     switch (event.target.id) {
         case 'ding' + 0:
-            if (document.getElementById('ding' + digitosFix).value.length > 0 && document.getElementById('ding0').value.length > 0) {
-                document.getElementById('mezclarA0').removeAttribute('disabled', "")                
-            }      
+            if (limite === 1) {
+                if (document.getElementById('ding' + digitosFix).value.length > 0 && document.getElementById('ding0').value.length > 0) {
+                    document.getElementById('mezclarA0').removeAttribute('disabled', "")                
+                }  
+            }    
             else {
                 document.getElementById('mezclarA0').setAttribute('disabled', "")
             }
