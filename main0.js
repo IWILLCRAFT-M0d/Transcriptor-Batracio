@@ -1,6 +1,6 @@
 const din = document.getElementById("dinamico");
 
-// FunciÛn de agregar lineas y aumentar el tamaÒo del textarea
+// Funci√≥n de agregar lineas y aumentar el tama√±o del textarea
 let agre0 = (e) => {
     let cambioIdioma = document.getElementById('cambioIdioma');
     let idsel0 = event.target.parentElement;
@@ -11,19 +11,19 @@ let agre0 = (e) => {
         case false:
         div.innerHTML =
             `<textarea type="text" name="personajes" id="" placeholder="Personaje"></textarea>
-<textarea type="text" name="diaEnIng" id="" placeholder="Di·logo en inglÈs"></textarea>
-<textarea type="text" name="diaEnEsp" id="" placeholder="Di·logo en espaÒol"></textarea><br>
+<textarea type="text" name="diaEnIng" id="" placeholder="Di√°logo en ingl√©s"></textarea>
+<textarea type="text" name="diaEnEsp" id="" placeholder="Di√°logo en espa√±ol"></textarea><br>
 <button class="botonagregar" onclick="agre0(this)">Agregar</button><label></label><button class="botoneliminar" onclick="elim(this)">Eliminar</button><br>
-            <button class="mezclar" id="" onclick="mezclarA(this)" disabled>Mezclar di·logos InglÈs</button><button class="mezclar" id="" onclick="mezclarB(this)" disabled>Mezclar di·logos EspaÒol</button>`;
+            <button class="mezclar" id="" onclick="mezclarA(this)" disabled>Mezclar di√°logos Ingl√©s</button><button class="mezclar" id="" onclick="mezclarB(this)" disabled>Mezclar di√°logos Espa√±ol</button>`;
             break
 
         case true:
         div.innerHTML =
             `<textarea type="text" name="personajes" id="" placeholder="Personaje"></textarea>
-<textarea type="text" name="diaEnIng" id="" placeholder="Di·logo"></textarea>
-<textarea type="text" name="diaEnEsp" id="" placeholder="Di·logo en espaÒol" style="visibility: hidden;"></textarea><br>
+<textarea type="text" name="diaEnIng" id="" placeholder="Di√°logo"></textarea>
+<textarea type="text" name="diaEnEsp" id="" placeholder="Di√°logo en espa√±ol" style="visibility: hidden;"></textarea><br>
 <button class="botonagregar" onclick="agre0(this)">Agregar</button><label></label><button class="botoneliminar" onclick="elim(this)">Eliminar</button><br>
-<button class="mezclar" id="" onclick="mezclarA(this)" disabled style="left: 27.5%;">Mezclar di·logos</button><button class="mezclar" id="" onclick="mezclarB(this)" disabled style="visibility: hidden;">Mezclar di·logos EspaÒol</button>`;
+<button class="mezclar" id="" onclick="mezclarA(this)" disabled style="left: 27.5%;">Mezclar di√°logos</button><button class="mezclar" id="" onclick="mezclarB(this)" disabled style="visibility: hidden;">Mezclar di√°logos Espa√±ol</button>`;
             break
     };
     din.insertBefore(div, din.children[idsel2 + 1]);
@@ -34,7 +34,7 @@ let agre0 = (e) => {
     document.getElementById("resultado").style.height = resultadoAlturaSuma + "px";
 };
 
-// ReacomodaciÛn de ids (gracias a Looper por ayudarme a solucionarlo)
+// Reacomodaci√≥n de ids (gracias a Looper por ayudarme a solucionarlo)
 let recalcularIds = (e) => {
     let ids = din.children;
     for (let i = 0; i < ids.length; i++) {
@@ -50,7 +50,7 @@ let recalcularIds = (e) => {
     }
 };
 
-// FunciÛn de elminar lineas y reducir el tamaÒo del textarea
+// Funci√≥n de elminar lineas y reducir el tama√±o del textarea
 let elim = (e) => {
     let dinTotal = String(din.childElementCount) - 1;
     let idsel0 = event.target.parentElement;
@@ -86,7 +86,7 @@ din.addEventListener("keydown", (e) => {
     }
   });
 
-// ReacciÛn en caso de precionar enter en una casilla/input
+// Reacci√≥n en caso de precionar enter en una casilla/input
 din.addEventListener("keyup", e => {
     let digitos0 = event.target.id.match(/\d+/);
     let digitos = parseInt(digitos0);
@@ -153,7 +153,7 @@ din.addEventListener("keyup", e => {
         break
     }
 
-    //Adapta el tamaÒo del textarea dependiendo del texto
+    //Adapta el tama√±o del textarea dependiendo del texto
     switch (event.target.id) {
             case "per" + digitos:
                 document.getElementById("per" + digitos).style.height = (tamales1) + 'px';
@@ -238,13 +238,13 @@ let cambiar = (e) => {
     let inputSub2Div = document.getElementById('linea1-0');
     if (cambioIdioma.checked == false) {
         inputSub2Div.removeAttribute('hidden');
-        inputSub1.innerHTML = 'Cargar subtitulos en InglÈs';
+        inputSub1.innerHTML = 'Cargar subtitulos en Ingl√©s';
         inputSub1.style.marginLeft = '12px';
         inputSub1.style.marginRight = '12px';
         for (let i = 0; i < ids.length; i++) {
-            ids[i].children[1].placeholder = 'Di·logo en inglÈs';
+            ids[i].children[1].placeholder = 'Di√°logo en ingl√©s';
             ids[i].children[2].style.visibility = 'visible';
-            ids[i].children[8].innerHTML = 'Mezclar di·logos InglÈs';
+            ids[i].children[8].innerHTML = 'Mezclar di√°logos Ingl√©s';
             ids[i].children[8].style.left = '-2.5%';
             ids[i].children[9].style.visibility = 'visible';
         }
@@ -254,16 +254,16 @@ let cambiar = (e) => {
         inputSub1.style.marginLeft = '0px';
         inputSub1.style.marginRight = '0px';
         for (let i = 0; i < ids.length; i++) {
-            ids[i].children[1].placeholder = 'Di·logo';
+            ids[i].children[1].placeholder = 'Di√°logo';
             ids[i].children[2].style.visibility = 'hidden';
-            ids[i].children[8].innerHTML = 'Mezclar di·logos';
+            ids[i].children[8].innerHTML = 'Mezclar di√°logos';
             ids[i].children[8].style.left = '27.5%';
             ids[i].children[9].style.visibility = 'hidden';
         }
     }
 }
 
-// FunciÛn de agregar lineas cuando se cargan subtitulos
+// Funci√≥n de agregar lineas cuando se cargan subtitulos
 let agreCargarSub = (e) => {
     let cambioIdioma = document.getElementById('cambioIdioma');
     let div = document.createElement('div');
@@ -271,26 +271,26 @@ let agreCargarSub = (e) => {
         case false:
             div.innerHTML =
             `<textarea type="text" name="personajes" id="" placeholder="Personaje"></textarea>
-<textarea type="text" name="diaEnIng" id="" placeholder="Di·logo en inglÈs"></textarea>
-<textarea type="text" name="diaEnEsp" id="" placeholder="Di·logo en espaÒol"></textarea><br>
+<textarea type="text" name="diaEnIng" id="" placeholder="Di√°logo en ingl√©s"></textarea>
+<textarea type="text" name="diaEnEsp" id="" placeholder="Di√°logo en espa√±ol"></textarea><br>
 <button class="botonagregar" onclick="agre0(this)">Agregar</button><label></label><button class="botoneliminar" onclick="elim(this)">Eliminar</button><br>
-            <button class="mezclar" id="" onclick="mezclarA(this)" disabled>Mezclar di·logos InglÈs</button><button class="mezclar" id="" onclick="mezclarB(this)" disabled>Mezclar di·logos EspaÒol</button>`;
+            <button class="mezclar" id="" onclick="mezclarA(this)" disabled>Mezclar di√°logos Ingl√©s</button><button class="mezclar" id="" onclick="mezclarB(this)" disabled>Mezclar di√°logos Espa√±ol</button>`;
             break
 
         case true:
         div.innerHTML =
             `<textarea type="text" name="personajes" id="" placeholder="Personaje"></textarea>
-<textarea type="text" name="diaEnIng" id="" placeholder="Di·logo"></textarea>
-<textarea type="text" name="diaEnEsp" id="" placeholder="Di·logo en espaÒol" style="visibility: hidden;"></textarea><br>
+<textarea type="text" name="diaEnIng" id="" placeholder="Di√°logo"></textarea>
+<textarea type="text" name="diaEnEsp" id="" placeholder="Di√°logo en espa√±ol" style="visibility: hidden;"></textarea><br>
 <button class="botonagregar" onclick="agre0(this)">Agregar</button><label></label><button class="botoneliminar" onclick="elim(this)">Eliminar</button><br>
-<button class="mezclar" id="" onclick="mezclarA(this)" disabled style="left: 27.5%;">Mezclar di·logos</button><button class="mezclar" id="" onclick="mezclarB(this)" disabled style="visibility: hidden">Mezclar di·logos EspaÒol</button>`;
+<button class="mezclar" id="" onclick="mezclarA(this)" disabled style="left: 27.5%;">Mezclar di√°logos</button><button class="mezclar" id="" onclick="mezclarB(this)" disabled style="visibility: hidden">Mezclar di√°logos Espa√±ol</button>`;
             break
     };
     din.appendChild(div);
     recalcularIds()
 };
 
-// AcciÛn de cargar subtitulos en inglÈs
+// Acci√≥n de cargar subtitulos en ingl√©s
 document.getElementById('linea0').addEventListener('change', function () {
     let ids = din.children;
     let inputEng = document.getElementById('linea0');
@@ -302,7 +302,7 @@ document.getElementById('linea0').addEventListener('change', function () {
         let resA = res0.replace(/\d+(\r\n)\d+:\d+:\d+,\d+ --> \d+:\d+:\d+,\d+(\r\n)/g, ''); //Filtro de numeros
         let resB = resA.replace(/-?\[.+(\r\n.+)?(\r\n.+)?\](\s+)?((\r\n)(\r\n)+)?/g, ''); //Filtro de llaves
         let resC = resB.replace(/(\r\n){2}(\r\n)+/g, '\r\n\r\n'); //Filtro de lineas
-        let resD = resC.replace(/<i>|<\/i>/g, ''); //Filtro de cosas de los subtÌtulos
+        let resD = resC.replace(/<i>|<\/i>/g, ''); //Filtro de cosas de los subt√≠tulos
         let resF = resD.match(/.+(\r\n.+)*/g);
         let resE = resF.map(die => die.replace(/\r\n/g, " "));
         let resTotal = resE.length - 1;
@@ -329,7 +329,7 @@ document.getElementById('linea0').addEventListener('change', function () {
     };
 });
 
-// AcciÛn de cargar subtitulos en espaÒol
+// Acci√≥n de cargar subtitulos en espa√±ol
 document.getElementById('linea1').addEventListener('change', function () {
     let ids = din.children;
     let inputEsp = document.getElementById('linea1');
@@ -340,8 +340,8 @@ document.getElementById('linea1').addEventListener('change', function () {
         let res0 = fileEsp.result;
         let resA = res0.replace(/\d+(\r\n)\d+:\d+:\d+,\d+ --> \d+:\d+:\d+,\d+(\r\n)/g, ''); //Filtro de numeros
         let resB = resA.replace(/-?\[.+(\r\n.+)?(\r\n.+)?\](\s+)?((\r\n)(\r\n)+)?/g, ''); //Filtro de llaves
-        let resC = resB.replace(/(\r\n){2}(\r\n)+/g, '\r\n\r\n'); //Filtro de lÌneas
-        let resD = resC.replace(/<i>|<\/i>/g, ''); //Filtro de cosas de los subtÌtulos
+        let resC = resB.replace(/(\r\n){2}(\r\n)+/g, '\r\n\r\n'); //Filtro de l√≠neas
+        let resD = resC.replace(/<i>|<\/i>/g, ''); //Filtro de cosas de los subt√≠tulos
         let resF = resD.match(/.+(\r\n.+)*/g);
         let resE = resF.map(dee => dee.replace(/\r\n/g, " "));
         let resTotal = resE.length - 1;
@@ -438,7 +438,7 @@ let mezclarB = (e) => {
     }
 }
 
-// AcciÛn de copiar resultados
+// Acci√≥n de copiar resultados
 document.getElementById("copiar").onclick = function () {
     let res = document.getElementById('resultado');
     textarena.select();
@@ -480,26 +480,26 @@ document.getElementById("fin").onclick = function () {
                 pers1 = pers1.replace(/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi, '[[Polly Plantar]]');
                 break
 
-            case (/(hop|abu|pap(a|·))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                pers1 = pers1.replace(/(hop|abu|pap(a|·))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi, '[[Abu Hop Plantar|Hop Pop]]');
+            case (/(hop|abu|pap(a|√°))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi).test(pers1):
+                pers1 = pers1.replace(/(hop|abu|pap(a|√°))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi, '[[Abu Hop Plantar|Hop Pop]]');
                 break
 
-            //Ranas: familia Sundew/RocÌo
-            case ((/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|Ì?o|Ìo?)))?/gi)).test(pers1):
-                pers1 = pers1.replace(/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|Ì?o|Ìo?)))?/gi, '[[Sol RocÌo|Ivy Sundew]]');
+            //Ranas: familia Sundew/Roc√≠o
+            case ((/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|√≠?o|√≠o?)))?/gi)).test(pers1):
+                pers1 = pers1.replace(/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|√≠?o|√≠o?)))?/gi, '[[Sol Roc√≠o|Ivy Sundew]]');
                 break
 
-            case ((/(felic(i?a|ia?|Ì?a|Ìa?))(\s((sundew|sun|dew)|roc(i?o|io?|Ì?o|Ìo?)))?/gi)).test(pers1):
-                pers1 = pers1.replace(/(felic(i?a|ia?|Ì?a|Ìa?))(\s((sundew|sun|dew)|roc(i?o|io?|Ì?o|Ìo?)))?/gi, '[[FelicÌa RocÌo|Felicia Sundew]]');
+            case ((/(felic(i?a|ia?|√≠?a|√≠a?))(\s((sundew|sun|dew)|roc(i?o|io?|√≠?o|√≠o?)))?/gi)).test(pers1):
+                pers1 = pers1.replace(/(felic(i?a|ia?|√≠?a|√≠a?))(\s((sundew|sun|dew)|roc(i?o|io?|√≠?o|√≠o?)))?/gi, '[[Felic√≠a Roc√≠o|Felicia Sundew]]');
                 break
 
-            case ((/(s(y|i)lv(i?a|ia?|Ì?a|Ìa?))(\s((sundew|sun|dew)|roc(i?o|io?|Ì?o|Ìo?)))?/gi)).test(pers1):
-                pers1 = pers1.replace(/(s(y|i)lv(i?a|ia?|Ì?a|Ìa?))(\s((sundew|sun|dew)|roc(i?o|io?|Ì?o|Ìo?)))?/gi, '[[SilvÌa RocÌo|Sylvia Sundew]]');
+            case ((/(s(y|i)lv(i?a|ia?|√≠?a|√≠a?))(\s((sundew|sun|dew)|roc(i?o|io?|√≠?o|√≠o?)))?/gi)).test(pers1):
+                pers1 = pers1.replace(/(s(y|i)lv(i?a|ia?|√≠?a|√≠a?))(\s((sundew|sun|dew)|roc(i?o|io?|√≠?o|√≠o?)))?/gi, '[[Silv√≠a Roc√≠o|Sylvia Sundew]]');
                 break
 
             //Tritones
-            case ((/((lady|se(n|Ò)orita)\s)?(oliv(i?a|ia?|Ì?a|Ìa?))/gi)).test(pers1):
-                pers1 = pers1.replace(/((lady|se(n|Ò)orita)\s)?(oliv(i?a|ia?|Ì?a|Ìa?))/gi, '[[Olivia]]');
+            case ((/((lady|se(n|√±)orita)\s)?(oliv(i?a|ia?|√≠?a|√≠a?))/gi)).test(pers1):
+                pers1 = pers1.replace(/((lady|se(n|√±)orita)\s)?(oliv(i?a|ia?|√≠?a|√≠a?))/gi, '[[Olivia]]');
                 break
 
             case ((/((general)\s)?(ju(v|b)ina|yunn?an)/gi)).test(pers1):
