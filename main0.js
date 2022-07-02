@@ -446,8 +446,6 @@ let mezclarB = (e) => {
 // Acción de copiar resultados
 document.getElementById("copiar").onclick = function () {
     let res = document.getElementById('resultado');
-    res.select();
-    res.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(res.value);
 }
 
