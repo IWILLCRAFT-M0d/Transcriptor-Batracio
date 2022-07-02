@@ -158,14 +158,17 @@ din.addEventListener("keyup", e => {
     //Adapta el tamaño del textarea dependiendo del texto
     switch (event.target.id) {
             case "per" + digitos:
+                document.getElementById("per" + digitos).style.height = '20px';
                 document.getElementById("per" + digitos).style.height = (tamales1) + 'px';
                 break
 
             case "ding" + digitos:
+                document.getElementById("ding" + digitos).style.height = '20px';
                 document.getElementById("ding" + digitos).style.height = (tamales1) + 'px';
                 break
 
             case "desp" + digitos:
+                document.getElementById("desp" + digitos).style.height = '20px';
                 document.getElementById("desp" + digitos).style.height = (tamales1) + 'px';
                 break
     }
@@ -443,7 +446,8 @@ let mezclarB = (e) => {
 // Acción de copiar resultados
 document.getElementById("copiar").onclick = function () {
     let res = document.getElementById('resultado');
-    textarena.select();
+    res.select();
+    res.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(res.value);
 }
 
