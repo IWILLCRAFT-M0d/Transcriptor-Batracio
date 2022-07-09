@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amphibia Transcripciones</title>
+    <meta charset="UTF-8">
+    <script async src="main0.js" charset="UTF-8"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo0.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="Herramienta para acelerar la transcripción de episodio de Amphibia." />
+</head>
+<body>
+    <center>
+        <h1>¡Bienvenidos al transcriptor batracio!</h1>
+        <a href="https://amphibia.fandom.com/es/wiki/Portada" target="_blank">(Link a la portada de la wiki)</a>
+        <p>Aquí tendras herramientas para hacer transcripciones de los episodio de la wiki hispana de Amphibia mas comodamente.</p>
+        <div id="CGSM">
+            <label id="linea0-0">
+                <label class="CGS" id="linea0-1" for="linea0">Cargar subtitulos en Inglés</label>
+                <input type="file" accept=".srt" class="linea0" id="linea0"/>
+            </label>
+            <label id="linea1-0">
+                <label class="CGS" id="linea1-1" for="linea1">Cargar subtitulos en Español</label>
+                <input type="file" accept=".srt" class="linea1" id="linea1"/>
+            </label>
+        </div>
+        <label id="cambioIdiomaLabelMain">Cambiar modo de idioma: </label>
+        <label>
+            <input type="checkbox" class="cambioIdioma" onclick="cambiar()" id="cambioIdioma" hidden>
+            <span id="CIslider"></span>
+        </label>
+    </center>
+    <div class="dinamicoss" id="dinamico">
+        <div>
+            <textarea type="text" name="personajes" id="per0" placeholder="Personaje"></textarea>
+            <textarea type="text" name="diaEnIng" id="ding0" placeholder="Diálogo en inglés"></textarea>
+            <textarea type="text" name="diaEnEsp" id="desp0" placeholder="Diálogo en español"></textarea><br />
+            <button class="botonagregar" onclick="agre0(this)">Agregar</button><label>Linea numero 1</label><button class="botoneliminar" onclick="elim(this)">Eliminar</button><br>
+            <button class="mezclar" id="mezclarA0" onclick="mezclarA(this)" disabled>Mezclar diálogos Inglés</button><button class="mezclar" id="mezclarB0" onclick="mezclarB(this)" disabled>Mezclar diálogos Español</button>
+        </div>
+    </div>
+    <textarea readonly id="resultado" style="height: 300px; "></textarea>
+    <button type="button" name="afor" id="fin">Mostrar resulados</button>
+    <button type="button" name="copy" id="copiar">Copiar resulados</button>
+</body>
+</html>
