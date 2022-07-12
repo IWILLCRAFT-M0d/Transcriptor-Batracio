@@ -522,21 +522,19 @@ document.getElementById("fin").onclick = function () {
                 break
     
             case true:
-            if (pers2 === 0 && ingl2 === 0) {
-                //error
-            }
-            else if ((pers2 > 0 && ingl2 === 0) || (pers2 === 0 && ingl2 > 0)) {
-                if (pers2 > 0) {
-                    document.getElementById("resultado").value += "{{DT||" + pers1 + "}}" + '\n';
-                }
-                else if (ingl2 > 0) {
-                    document.getElementById("resultado").value += "{{DT||" + ingl1 + "}}" + '\n';
-                }
-            else if (pers2 > 0 && ingl2 > 0) {
+            
+            if (pers2 > 0 && ingl2 > 0) {
                 document.getElementById("resultado").value += "{{DT|" + pers1 + "|" + ingl1 + "}}" + '\n';
             }
-                break
+
+            else if (pers2 > 0 && ingl2 === 0) {
+                document.getElementById("resultado").value += "{{DT||" + pers1 + "}}" + '\n';
+            }
+
+            else if (pers2 === 0 && ingl2 > 0) {
+                document.getElementById("resultado").value += "{{DT||" + ingl1 + "}}" + '\n';
+            }
+            break
         }
-        };
     }
 }
