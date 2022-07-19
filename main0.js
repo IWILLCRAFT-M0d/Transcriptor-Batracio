@@ -1,4 +1,4 @@
-const din = document.getElementById("dinamico");
+const din = document.getElementById('dinamico');
 
 // Función de agregar lineas
 let agre0 = (e) => {
@@ -65,7 +65,7 @@ let recalcularIds = (e) => {
     }
     for (let i = 0; i < ids.length; i++) {
         let y = i + 1;
-        ids[i].children[5].innerHTML = 'Linea numero ' + y;
+        ids[i].children[5].innerHTML = 'Línea número ' + y;
     }
 };
 
@@ -104,6 +104,45 @@ let elim = (e) => {
         document.getElementById("ding0").value = '';
         document.getElementById("desp0").value = '';
     }
+};
+
+// Cambiar sección de menu lateral
+
+let filtroBotonValor0 = document.getElementById('menu-1');
+let filtroBotonValor1 = document.getElementById('menu-2');
+let filtroBotonValor2 = document.getElementById('menu-3');
+let filtroBotonValor3 = document.getElementById('menu-4');
+let ml1 = document.getElementById('menu-lateral-1');
+let ml2 = document.getElementById('menu-lateral-2');
+let ml3 = document.getElementById('menu-lateral-3');
+let ml4 = document.getElementById('menu-lateral-4');
+
+filtroBotonValor0.onclick = function(){
+    ml1.style.display = "inline"
+    ml2.style.display = "none"
+    ml3.style.display = "none"
+    ml4.style.display = "none"
+};
+
+filtroBotonValor1.onclick = function(){
+    ml1.style.display = "none"
+    ml2.style.display = "inline"
+    ml3.style.display = "none"
+    ml4.style.display = "none"
+};
+
+filtroBotonValor2.onclick = function(){
+    ml1.style.display = "none"
+    ml2.style.display = "none"
+    ml3.style.display = "inline"
+    ml4.style.display = "none"
+};
+
+filtroBotonValor3.onclick = function(){
+    ml1.style.display = "none"
+    ml2.style.display = "none"
+    ml3.style.display = "none"
+    ml4.style.display = "inline"
 };
 
 // Deshabilita el la tecla "Enter" dentro de los textarea
@@ -205,18 +244,20 @@ function textarenaResAdapt (value) {
     }
 }
 
-
 // Modo de cambiar idiomas
 let cambiar = (e) => {
     let cambioIdioma = document.getElementById('cambioIdioma');
     let ids = din.children;
-    let inputSub1 = document.getElementById('linea0-1');
-    let inputSub2Div = document.getElementById('linea1-0');
+    let inputSub1 = document.getElementById('linea01');
+    let inputSub2 = document.getElementById('linea11');
+    let textoMenuLateral = document.getElementById('mdi-texto-2');
+    let iconoMenuLateral = document.getElementById('modoIdiomaCambioIcono');
     if (cambioIdioma.checked == false) {
-        inputSub2Div.removeAttribute('hidden');
+        inputSub1.removeAttribute('style');
+        inputSub2.style.display = 'flex';
+        textoMenuLateral.innerHTML = 'Modo actual: Dual';
         inputSub1.innerHTML = 'Cargar subtitulos en Inglés';
-        inputSub1.style.marginLeft = '12px';
-        inputSub1.style.marginRight = '12px';
+        iconoMenuLateral.innerHTML = 'toggle_on';
         for (let i = 0; i < ids.length; i++) {
             ids[i].children[1].placeholder = 'Diálogo en inglés';
             ids[i].children[2].style.visibility = 'visible';
@@ -225,10 +266,11 @@ let cambiar = (e) => {
             ids[i].children[9].style.visibility = 'visible';
         }
     } else {
-        inputSub2Div.setAttribute('hidden', true);
+        inputSub1.style.gridColumn = '1 / label 2';
+        inputSub2.style.display = 'none';
+        textoMenuLateral.innerHTML = 'Modo actual: Singular';
         inputSub1.innerHTML = 'Cargar subtitulos';
-        inputSub1.style.marginLeft = '0px';
-        inputSub1.style.marginRight = '0px';
+        iconoMenuLateral.innerHTML = 'toggle_off';
         for (let i = 0; i < ids.length; i++) {
             ids[i].children[1].placeholder = 'Diálogo';
             ids[i].children[2].style.visibility = 'hidden';
@@ -422,119 +464,4 @@ let mezclarB = (e) => {
 document.getElementById("copiar").onclick = function () {
     let res = document.getElementById('resultado');
     navigator.clipboard.writeText(res.value);
-}
-
-// Mostrar resultados y filtro de nombres
-document.getElementById("fin").onclick = function () {
-    document.getElementById("resultado").value = '';
-    for (let i = 0; i < din.children.length; i++) {
-        let pers1 = document.getElementById("per" + i).value;
-        let ingl1 = document.getElementById("ding" + i).value;
-        let espa1 = document.getElementById("desp" + i).value;
-        let pers2 = pers1.length;
-        let ingl2 = ingl1.length;
-        let espa2 = espa1.length;
-
-        switch (true) {
-
-            //Humanos
-            case (/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi).test(pers1):
-                pers1 = pers1.replace(/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi, '[[Anne Boonchuy]]');
-                break
-
-            case (/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi).test(pers1):
-                pers1 = pers1.replace(/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi, '[[Sasha Waybright]]');
-                break
-
-            case ((/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi)).test(pers1):
-                pers1 = pers1.replace(/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi, '[[Marcy Wu]]');
-            break
-
-            //Ranas: familia Plantar
-            case (/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                pers1 = pers1.replace(/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi, '[[Sprig Plantar]]');
-                break
-
-            case (/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                pers1 = pers1.replace(/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi, '[[Polly Plantar]]');
-                break
-
-            case (/(hop|abu|pap(a|á))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                pers1 = pers1.replace(/(hop|abu|pap(a|á))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi, '[[Abu Hop Plantar|Hop Pop]]');
-                break
-
-            //Ranas: familia Sundew/Rocío
-            case ((/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                pers1 = pers1.replace(/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Sol Rocío|Ivy Sundew]]');
-                break
-
-            case ((/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                pers1 = pers1.replace(/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Felicía Rocío|Felicia Sundew]]');
-                break
-
-            case ((/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                pers1 = pers1.replace(/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Silvía Rocío|Sylvia Sundew]]');
-                break
-
-            //Tritones
-            case ((/((lady|se(n|ñ)orita)\s)?(oliv(i?a|ia?|í?a|ía?))/gi)).test(pers1):
-                pers1 = pers1.replace(/((lady|se(n|ñ)orita)\s)?(oliv(i?a|ia?|í?a|ía?))/gi, '[[Olivia]]');
-                break
-
-            case ((/((general)\s)?(ju(v|b)ina|yunn?an)/gi)).test(pers1):
-                pers1 = pers1.replace(/((general)\s)?(ju(v|b)ina|yunn?an)/gi, '[[General Juvina|Yunan]]');
-                break
-
-            case ((/((rey)\s)?((an)?drias)(\s(lev(ia|ai)(than|tan)))?/gi)).test(pers1):
-                pers1 = pers1.replace(/((rey)\s)?((an)?drias)(\s(lev(ia|ai)(than|tan)))?/gi, '[[Rey Andrias]]');
-                break
-        }
-        switch (cambioIdioma.checked) {
-            case false:
-            if (pers2 === 0 && espa2 === 0 && ingl2 === 0) {
-                //error
-            }
-            else if ((pers2 > 0 && espa2 === 0 && ingl2 === 0) || (pers2 === 0 && espa2 > 0 && ingl2 === 0) || (pers2 === 0 && espa2 === 0 && ingl2 > 0)) {
-                if (pers2 > 0) {
-                    document.getElementById("resultado").value += "{{DTE|||" + pers1 + "}}" + '\n';
-                }
-                else if (espa2 > 0) {
-                    document.getElementById("resultado").value += "{{DTE|||" + espa1 + "}}" + '\n';
-                }
-                else if (ingl2 > 0) {
-                    document.getElementById("resultado").value += "{{DTE|||" + ingl1 + "}}" + '\n';
-                }
-            }
-            else if ((pers2 > 0 && espa2 > 0 && ingl2 === 0) || (pers2 > 0 && espa2 === 0 && ingl2 > 0)) {
-                if (pers2 > 0 && espa2 > 0) {
-                    document.getElementById("resultado").value += "{{DTE||" + pers1 + "|" + espa1 + "}}" + '\n';
-                }
-                else if (pers2 > 0 && ingl2 > 0) {
-                    document.getElementById("resultado").value += "{{DTE||" + pers1 + "|" + ingl1 + "}}" + '\n';
-                }
-            }
-            else if (pers2 === 0 && espa2 > 0 && ingl2 > 0) {
-                //error
-            }
-            else if (pers2 > 0 && espa2 > 0 && ingl2 > 0) {
-                document.getElementById("resultado").value += "{{DTE|" + pers1 + "|" + ingl1 + "|" + espa1 + "}}" + '\r\n';
-            }
-                break
-    
-            case true:
-            
-            if (pers2 > 0 && ingl2 > 0) {
-                document.getElementById("resultado").value += "{{DT|" + pers1 + "|" + ingl1 + "}}" + '\n';
-            }
-
-            else if (pers2 > 0 && ingl2 === 0) {
-                document.getElementById("resultado").value += "{{DT||" + pers1 + "}}" + '\n';
-            }
-
-            else if (pers2 === 0 && ingl2 > 0) {
-                document.getElementById("resultado").value += "{{DT||" + ingl1 + "}}" + '\n';
-            }
-            break
-        }
-    }
 }
