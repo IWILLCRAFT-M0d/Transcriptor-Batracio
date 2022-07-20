@@ -152,6 +152,60 @@ din.addEventListener("keydown", (e) => {
     }
   });
 
+
+// Deshabilita la tecla "Enter" dentro de los textarea y adapta el tamaño de los textarea dependiendo del texto
+din.addEventListener("keydown", (e) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+    }
+    
+    let digitos0 = event.target.id.match(/\d+/);
+    let digitos = parseInt(digitos0);
+    switch (event.target.id) {
+        case "per" + digitos:
+            if (document.getElementById('per' + digitos).value.length <= 18) {
+                document.getElementById('per' + digitos).style.height = '20px'
+            }
+            else if (document.getElementById('per' + digitos).value.length <= 32) {
+                document.getElementById('per' + digitos).style.height = '30px'
+            }
+            else {
+                document.getElementById('per' + digitos).style.height = 'auto'
+                let arena0 = document.getElementById('per' + digitos).scrollHeight;
+                document.getElementById('per' + digitos).style.height = (arena0 - 4) + 'px';
+            }
+            break
+
+        case "ding" + digitos:
+            if (document.getElementById('ding' + digitos).value.length <= 18) {
+                document.getElementById('ding' + digitos).style.height = '20px'
+            }
+            else if (document.getElementById('ding' + digitos).value.length <= 32) {
+                document.getElementById('ding' + digitos).style.height = '30px'
+            }
+            else {
+                document.getElementById('ding' + digitos).style.height = 'auto'
+                let arena0 = document.getElementById('ding' + digitos).scrollHeight;
+                document.getElementById('ding' + digitos).style.height = (arena0 - 4) + 'px';
+            }
+            break
+
+        case "desp" + digitos:
+            if (document.getElementById('desp' + digitos).value.length <= 18) {
+                document.getElementById('desp' + digitos).style.height = '20px'
+            }
+            else if (document.getElementById('desp' + digitos).value.length <= 32) {
+                document.getElementById('desp' + digitos).style.height = '30px'
+            }
+            else {
+                document.getElementById('desp' + digitos).style.height = 'auto'
+                let arena0 = document.getElementById('desp' + digitos).scrollHeight;
+                document.getElementById('desp' + digitos).style.height = (arena0 - 4) + 'px';
+            }
+            break
+}
+  });
+
 // Reacción en caso de precionar enter en una casilla/input
 din.addEventListener("keyup", e => {
     let digitos0 = event.target.id.match(/\d+/);
@@ -161,28 +215,8 @@ din.addEventListener("keyup", e => {
 
     let limite = din.children.length - 1;
     let ids = din.children;
-
-    
     let tamales0 = (e.target.scrollHeight);
     let tamales1 = tamales0 - 4;
-
-    //Adapta el tamaño del textarea dependiendo del texto
-    switch (event.target.id) {
-            case "per" + digitos:
-                document.getElementById("per" + digitos).style.height = '20px';
-                document.getElementById("per" + digitos).style.height = (tamales1) + 'px';
-                break
-
-            case "ding" + digitos:
-                document.getElementById("ding" + digitos).style.height = '20px';
-                document.getElementById("ding" + digitos).style.height = (tamales1) + 'px';
-                break
-
-            case "desp" + digitos:
-                document.getElementById("desp" + digitos).style.height = '20px';
-                document.getElementById("desp" + digitos).style.height = (tamales1) + 'px';
-                break
-    }
     
     if (e.keyCode === 13) {
     switch (cambioIdioma.checked) {
