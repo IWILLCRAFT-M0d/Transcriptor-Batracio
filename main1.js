@@ -30,7 +30,6 @@ document.getElementById("fin").onclick = function () {
     let filtroBotonValor2 = document.getElementById('filtroNombresBoton2');
     switch (true) {
         case filtroBotonValor0.checked:
-            //console.log('los filtros estan en latino')
             for (let i = 0; i < din.children.length; i++) {
                 let pers1 = document.getElementById("per" + i).value;
                 let ingl1 = document.getElementById("ding" + i).value;
@@ -41,27 +40,26 @@ document.getElementById("fin").onclick = function () {
                 
                 
                 switch (true) {
-        
                     //Humanos
                     case (/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi).test(pers1):
-                        pers1 = pers1.replace(/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi, '[[Anne Boonchuy]]');
+                        pers1 = pers1.replace(/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi, '[[Anne Boonchuy|Anne]]');
                         break
         
                     case (/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi).test(pers1):
-                        pers1 = pers1.replace(/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi, '[[Sasha Waybright]]');
+                        pers1 = pers1.replace(/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi, '[[Sasha Waybright|Sasha]]');
                         break
         
                     case ((/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi, '[[Marcy Wu]]');
+                        pers1 = pers1.replace(/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi, '[[Marcy Wu|Marcy]]');
                     break
         
                     //Ranas: familia Plantar
                     case (/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                        pers1 = pers1.replace(/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi, '[[Sprig Plantar]]');
+                        pers1 = pers1.replace(/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi, '[[Sprig Plantar|Sprig]]');
                         break
         
                     case (/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                        pers1 = pers1.replace(/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi, '[[Polly Plantar]]');
+                        pers1 = pers1.replace(/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi, '[[Polly Plantar|Polly]]');
                         break
         
                     case (/(hop|abu|pap(a|á))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi).test(pers1):
@@ -70,15 +68,15 @@ document.getElementById("fin").onclick = function () {
         
                     //Ranas: familia Sundew/Rocío
                     case ((/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Sol Rocío|Ivy Sundew]]');
+                        pers1 = pers1.replace(/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Sol Rocío|Sol]]');
                         break
         
                     case ((/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Felicía Rocío|Felicia Sundew]]');
+                        pers1 = pers1.replace(/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Felicía Rocío|Felicía]]');
                         break
         
                     case ((/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Silvía Rocío|Sylvia Sundew]]');
+                        pers1 = pers1.replace(/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Silvía Rocío|Silvía]]');
                         break
         
                     //Tritones
@@ -96,56 +94,54 @@ document.getElementById("fin").onclick = function () {
                 }
                 switch (cambioIdioma.checked) {
                     case false:
-                    if (pers2 === 0 && espa2 === 0 && ingl2 === 0) {
-                        //error
-                    }
-                    else if ((pers2 > 0 && espa2 === 0 && ingl2 === 0) || (pers2 === 0 && espa2 > 0 && ingl2 === 0) || (pers2 === 0 && espa2 === 0 && ingl2 > 0)) {
-                        if (pers2 > 0) {
-                            document.getElementById("resultado").value += "{{DTE|||" + pers1 + "}}" + '\n';
+                        if (pers2 === 0 && espa2 === 0 && ingl2 === 0) {
+                            //error
                         }
-                        else if (espa2 > 0) {
-                            document.getElementById("resultado").value += "{{DTE|||" + espa1 + "}}" + '\n';
+                        else if ((pers2 > 0 && espa2 === 0 && ingl2 === 0) || (pers2 === 0 && espa2 > 0 && ingl2 === 0) || (pers2 === 0 && espa2 === 0 && ingl2 > 0)) {
+                            if (pers2 > 0) {
+                                document.getElementById("resultado").value += "{{DTE|||" + pers1 + "}}" + '\n';
+                            }
+                            else if (espa2 > 0) {
+                                document.getElementById("resultado").value += "{{DTE|||" + espa1 + "}}" + '\n';
+                            }
+                            else if (ingl2 > 0) {
+                                document.getElementById("resultado").value += "{{DTE|||" + ingl1 + "}}" + '\n';
+                            }
                         }
-                        else if (ingl2 > 0) {
-                            document.getElementById("resultado").value += "{{DTE|||" + ingl1 + "}}" + '\n';
+                        else if ((pers2 > 0 && espa2 > 0 && ingl2 === 0) || (pers2 > 0 && espa2 === 0 && ingl2 > 0)) {
+                            if (pers2 > 0 && espa2 > 0) {
+                                document.getElementById("resultado").value += "{{DTE||" + pers1 + "|" + espa1 + "}}" + '\n';
+                            }
+                            else if (pers2 > 0 && ingl2 > 0) {
+                                document.getElementById("resultado").value += "{{DTE||" + pers1 + "|" + ingl1 + "}}" + '\n';
+                            }
                         }
-                    }
-                    else if ((pers2 > 0 && espa2 > 0 && ingl2 === 0) || (pers2 > 0 && espa2 === 0 && ingl2 > 0)) {
-                        if (pers2 > 0 && espa2 > 0) {
-                            document.getElementById("resultado").value += "{{DTE||" + pers1 + "|" + espa1 + "}}" + '\n';
+                        else if (pers2 === 0 && espa2 > 0 && ingl2 > 0) {
+                            //error
                         }
-                        else if (pers2 > 0 && ingl2 > 0) {
-                            document.getElementById("resultado").value += "{{DTE||" + pers1 + "|" + ingl1 + "}}" + '\n';
+                        else if (pers2 > 0 && espa2 > 0 && ingl2 > 0) {
+                            document.getElementById("resultado").value += "{{DTE|" + pers1 + "|" + ingl1 + "|" + espa1 + "}}" + '\n';
                         }
-                    }
-                    else if (pers2 === 0 && espa2 > 0 && ingl2 > 0) {
-                        //error
-                    }
-                    else if (pers2 > 0 && espa2 > 0 && ingl2 > 0) {
-                        document.getElementById("resultado").value += "{{DTE|" + pers1 + "|" + ingl1 + "|" + espa1 + "}}" + '\r\n';
-                    }
                         break
             
                     case true:
-                    
-                    if (pers2 > 0 && ingl2 > 0) {
-                        document.getElementById("resultado").value += "{{DT|" + pers1 + "|" + ingl1 + "}}" + '\n';
-                    }
-        
-                    else if (pers2 > 0 && ingl2 === 0) {
-                        document.getElementById("resultado").value += "{{DT||" + pers1 + "}}" + '\n';
-                    }
-        
-                    else if (pers2 === 0 && ingl2 > 0) {
-                        document.getElementById("resultado").value += "{{DT||" + ingl1 + "}}" + '\n';
-                    }
-                    break
-                } 
-            }
+                        if (pers2 > 0 && ingl2 > 0) {
+                            document.getElementById("resultado").value += "{{DT|" + pers1 + "|" + ingl1 + "}}" + '\n';
+                        }
+            
+                        else if (pers2 > 0 && ingl2 === 0) {
+                            document.getElementById("resultado").value += "{{DT||" + pers1 + "}}" + '\n';
+                        }
+            
+                        else if (pers2 === 0 && ingl2 > 0) {
+                            document.getElementById("resultado").value += "{{DT||" + ingl1 + "}}" + '\n';
+                        }
+                        break
+                    } 
+                }
             break
-    
+
         case filtroBotonValor1.checked:
-            //console.log('los filtros estan en inglés')
             for (let i = 0; i < din.children.length; i++) {
                 let pers1 = document.getElementById("per" + i).value;
                 let ingl1 = document.getElementById("ding" + i).value;
@@ -156,44 +152,43 @@ document.getElementById("fin").onclick = function () {
                 
                 
                 switch (true) {
-        
                     //Humanos
                     case (/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi).test(pers1):
-                        pers1 = pers1.replace(/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi, '[[Anne Boonchuy]]');
+                        pers1 = pers1.replace(/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi, '[[Anne Boonchuy|Anne]]');
                         break
         
                     case (/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi).test(pers1):
-                        pers1 = pers1.replace(/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi, '[[Sasha Waybright]]');
+                        pers1 = pers1.replace(/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi, '[[Sasha Waybright|Sasha]]');
                         break
         
                     case ((/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi, '[[Marcy Wu]]');
+                        pers1 = pers1.replace(/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi, '[[Marcy Wu|Marcy]]');
                     break
         
                     //Ranas: familia Plantar
                     case (/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                        pers1 = pers1.replace(/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi, '[[Sprig Plantar]]');
+                        pers1 = pers1.replace(/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi, '[[Sprig Plantar|Sprig]]');
                         break
         
                     case (/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                        pers1 = pers1.replace(/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi, '[[Polly Plantar]]');
+                        pers1 = pers1.replace(/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi, '[[Polly]]');
                         break
         
                     case (/(hop|abu|pap(a|á))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                        pers1 = pers1.replace(/(hop|abu|pap(a|á))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi, '[[Abu Hop Plantar|Hop Pop]]');
+                        pers1 = pers1.replace(/(hop|abu|pap(a|á))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi, '[[Abu Hop Plantar|Hop Hop]]');
                         break
         
                     //Ranas: familia Sundew/Rocío
                     case ((/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Sol Rocío|Ivy Sundew]]');
+                        pers1 = pers1.replace(/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Sol Rocío|Ivy]]');
                         break
         
                     case ((/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Felicía Rocío|Felicia Sundew]]');
+                        pers1 = pers1.replace(/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Felicía Rocío|Felicia]]');
                         break
         
                     case ((/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Silvía Rocío|Sylvia Sundew]]');
+                        pers1 = pers1.replace(/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Silvía Rocío|Sylvia]]');
                         break
         
                     //Tritones
@@ -211,57 +206,54 @@ document.getElementById("fin").onclick = function () {
                 }
                 switch (cambioIdioma.checked) {
                     case false:
-                    if (pers2 === 0 && espa2 === 0 && ingl2 === 0) {
-                        //error
-                    }
-                    else if ((pers2 > 0 && espa2 === 0 && ingl2 === 0) || (pers2 === 0 && espa2 > 0 && ingl2 === 0) || (pers2 === 0 && espa2 === 0 && ingl2 > 0)) {
-                        if (pers2 > 0) {
-                            document.getElementById("resultado").value += "{{DTE|||" + pers1 + "}}" + '\n';
+                        if (pers2 === 0 && espa2 === 0 && ingl2 === 0) {
+                            //error
                         }
-                        else if (espa2 > 0) {
-                            document.getElementById("resultado").value += "{{DTE|||" + espa1 + "}}" + '\n';
+                        else if ((pers2 > 0 && espa2 === 0 && ingl2 === 0) || (pers2 === 0 && espa2 > 0 && ingl2 === 0) || (pers2 === 0 && espa2 === 0 && ingl2 > 0)) {
+                            if (pers2 > 0) {
+                                document.getElementById("resultado").value += "{{DTE|||" + pers1 + "}}" + '\n';
+                            }
+                            else if (espa2 > 0) {
+                                document.getElementById("resultado").value += "{{DTE|||" + espa1 + "}}" + '\n';
+                            }
+                            else if (ingl2 > 0) {
+                                document.getElementById("resultado").value += "{{DTE|||" + ingl1 + "}}" + '\n';
+                            }
                         }
-                        else if (ingl2 > 0) {
-                            document.getElementById("resultado").value += "{{DTE|||" + ingl1 + "}}" + '\n';
+                        else if ((pers2 > 0 && espa2 > 0 && ingl2 === 0) || (pers2 > 0 && espa2 === 0 && ingl2 > 0)) {
+                            if (pers2 > 0 && espa2 > 0) {
+                                document.getElementById("resultado").value += "{{DTE||" + pers1 + "|" + espa1 + "}}" + '\n';
+                            }
+                            else if (pers2 > 0 && ingl2 > 0) {
+                                document.getElementById("resultado").value += "{{DTE||" + pers1 + "|" + ingl1 + "}}" + '\n';
+                            }
                         }
-                    }
-                    else if ((pers2 > 0 && espa2 > 0 && ingl2 === 0) || (pers2 > 0 && espa2 === 0 && ingl2 > 0)) {
-                        if (pers2 > 0 && espa2 > 0) {
-                            document.getElementById("resultado").value += "{{DTE||" + pers1 + "|" + espa1 + "}}" + '\n';
+                        else if (pers2 === 0 && espa2 > 0 && ingl2 > 0) {
+                            //error
                         }
-                        else if (pers2 > 0 && ingl2 > 0) {
-                            document.getElementById("resultado").value += "{{DTE||" + pers1 + "|" + ingl1 + "}}" + '\n';
+                        else if (pers2 > 0 && espa2 > 0 && ingl2 > 0) {
+                            document.getElementById("resultado").value += "{{DTE|" + pers1 + "|" + ingl1 + "|" + espa1 + "}}" + '\n';
                         }
-                    }
-                    else if (pers2 === 0 && espa2 > 0 && ingl2 > 0) {
-                        //error
-                    }
-                    else if (pers2 > 0 && espa2 > 0 && ingl2 > 0) {
-                        document.getElementById("resultado").value += "{{DTE|" + pers1 + "|" + ingl1 + "|" + espa1 + "}}" + '\r\n';
-                    }
                         break
             
                     case true:
-                    
-                    if (pers2 > 0 && ingl2 > 0) {
-                        document.getElementById("resultado").value += "{{DT|" + pers1 + "|" + ingl1 + "}}" + '\n';
+                        if (pers2 > 0 && ingl2 > 0) {
+                            document.getElementById("resultado").value += "{{DT|" + pers1 + "|" + ingl1 + "}}" + '\n';
+                        }
+            
+                        else if (pers2 > 0 && ingl2 === 0) {
+                            document.getElementById("resultado").value += "{{DT||" + pers1 + "}}" + '\n';
+                        }
+            
+                        else if (pers2 === 0 && ingl2 > 0) {
+                            document.getElementById("resultado").value += "{{DT||" + ingl1 + "}}" + '\n';
+                        }
+                        break
                     }
-        
-                    else if (pers2 > 0 && ingl2 === 0) {
-                        document.getElementById("resultado").value += "{{DT||" + pers1 + "}}" + '\n';
-                    }
-        
-                    else if (pers2 === 0 && ingl2 > 0) {
-                        document.getElementById("resultado").value += "{{DT||" + ingl1 + "}}" + '\n';
-                    }
-                    break
-                } 
-                break
             }
             break
 
         case filtroBotonValor2.checked:
-            //console.log('los filtros estan en castellano')
             for (let i = 0; i < din.children.length; i++) {
                 let pers1 = document.getElementById("per" + i).value;
                 let ingl1 = document.getElementById("ding" + i).value;
@@ -275,24 +267,24 @@ document.getElementById("fin").onclick = function () {
         
                     //Humanos
                     case (/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi).test(pers1):
-                        pers1 = pers1.replace(/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi, '[[Anne Boonchuy]]');
+                        pers1 = pers1.replace(/(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi, '[[Anne Boonchuy|Anne]]');
                         break
         
                     case (/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi).test(pers1):
-                        pers1 = pers1.replace(/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi, '[[Sasha Waybright]]');
+                        pers1 = pers1.replace(/sasha?(\s((w|g)aybri?g(ht|th)?))?/gi, '[[Sasha Waybright|Sasha]]');
                         break
         
                     case ((/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi, '[[Marcy Wu]]');
+                        pers1 = pers1.replace(/(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi, '[[Marcy Wu|Marcy]]');
                     break
         
                     //Ranas: familia Plantar
                     case (/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                        pers1 = pers1.replace(/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi, '[[Sprig Plantar]]');
+                        pers1 = pers1.replace(/(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi, '[[Sprig Plantar|Sprig]]');
                         break
         
                     case (/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi).test(pers1):
-                        pers1 = pers1.replace(/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi, '[[Polly Plantar]]');
+                        pers1 = pers1.replace(/(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi, '[[Polly Plantar|Polly]]');
                         break
         
                     case (/(hop|abu|pap(a|á))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi).test(pers1):
@@ -301,15 +293,15 @@ document.getElementById("fin").onclick = function () {
         
                     //Ranas: familia Sundew/Rocío
                     case ((/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Sol Rocío|Ivy Sundew]]');
+                        pers1 = pers1.replace(/(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Sol Rocío|Ivy]]');
                         break
         
                     case ((/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Felicía Rocío|Felicia Sundew]]');
+                        pers1 = pers1.replace(/(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Felicía Rocío|Felicia]]');
                         break
         
                     case ((/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi)).test(pers1):
-                        pers1 = pers1.replace(/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Silvía Rocío|Silvia Sundew]]');
+                        pers1 = pers1.replace(/(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi, '[[Silvía Rocío|Silvia]]');
                         break
         
                     //Tritones
@@ -353,7 +345,7 @@ document.getElementById("fin").onclick = function () {
                         //error
                     }
                     else if (pers2 > 0 && espa2 > 0 && ingl2 > 0) {
-                        document.getElementById("resultado").value += "{{DTE|" + pers1 + "|" + ingl1 + "|" + espa1 + "}}" + '\r\n';
+                        document.getElementById("resultado").value += "{{DTE|" + pers1 + "|" + ingl1 + "|" + espa1 + "}}" + '\n';
                     }
                         break
             
