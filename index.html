@@ -4,43 +4,84 @@
     <title>Amphibia Transcripciones</title>
     <meta charset="UTF-8">
     <script async src="main0.js" charset="UTF-8"></script>
+    <script async src="main1.js" charset="UTF-8"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo0.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="description" content="Herramienta para acelerar la transcripción de episodio de Amphibia." />
 </head>
 <body>
     <center>
         <h1>¡Bienvenidos al transcriptor batracio!</h1>
+        <p>Este esta siendo editado actualmente</p>
         <a href="https://amphibia.fandom.com/es/wiki/Portada" target="_blank">(Link a la portada de la wiki)</a>
-        <p>Aquí tendras herramientas para hacer transcripciones de los episodio de la wiki hispana de Amphibia mas comodamente.</p>
-        <div id="CGSM">
-            <label id="linea0-0">
-                <label class="CGS" id="linea0-1" for="linea0">Cargar subtitulos en Inglés</label>
-                <input type="file" accept=".srt" class="linea0" id="linea0"/>
-            </label>
-            <label id="linea1-0">
-                <label class="CGS" id="linea1-1" for="linea1">Cargar subtitulos en Español</label>
-                <input type="file" accept=".srt" class="linea1" id="linea1"/>
-            </label>
+        <p>Aquí tendras herramientas para hacer transcripciones de los episodios de la wiki hispana de Amphibia más cómodamente.</p>
+        <div class="menu-lateral">
+            <div class="menu-lateral-iconos">
+                <div id="menu-1"><span id="modoIdiomaCambioIcono" class="material-symbols-outlined">toggle_on</span></div>
+                <div id="menu-2"><span class="material-symbols-outlined">file_upload</span></div>
+                <div id="menu-3"><img id="bandera_cambio" src="bandera_en.svg"></div>
+                <div id="menu-4"><span class="material-symbols-outlined">sunny</span></div>
+            </div>
+            <div id="menu-lateral-1" class="menu-lateral-1">
+                <span>Modo de idioma</span>
+                <span id="mdi-texto-1">En este modo se puede cambiar a modo dual o modo singular.</span>
+                <span id="mdi-texto-2">Modo actual: Dual</span>
+                <label>
+                    <input type="checkbox" class="cambioIdioma" onclick="cambiar()" id="cambioIdioma" hidden>
+                    <span id="cambioIdiomaSlider"></span>
+                </label>
+            </div>
+            <div id="menu-lateral-2" class="menu-lateral-2">
+                <span>Cargar texto/subtítulos</span>
+                <span id="mdi-texto-1">Aquí puedes cargar transcripciones a medio hacer o subtítulos de episodios.</span>
+                <div class="cargarSub">
+                    <label class="CGS" id="linea01" for="linea0">Cargar subtítulos en inglés</label>
+                    <input type="file" accept=".srt" class="cargarSubtitulosBotones" id="linea0"/>
+                    
+                    <label class="CGS" id="linea11" for="linea1">Cargar subtítulos en español</label>
+                    <input type="file" accept=".srt" class="cargarSubtitulosBotones" id="linea1"/>
+
+                    <label class="CGS" id="linea21" for="zapato">Cargar transcripción ya hecha</label>
+                    <input type="submit" id="zapato" onClick="elseñordelanoite()" style="display: none;"/> 
+                    <input type="file" accept=".srt" class="cargarSubtitulosBotones" id="linea2"/>
+                </div>
+                <div id="cargarSubProximamente">Proximamente</div>
+            </div>
+            <div id="menu-lateral-3" class="menu-lateral-3">
+                <span>Filtro de nombres</span>
+                <span id="mdi-texto-1">Aquí puedes seleccionar el idioma de la transcripcion para, al momento de mostrar resultados, los muestre con los nombres del idioma seleccionado.</span>
+                <input type="radio" id="filtroNombresBoton0" class="filtroNombresBoton" name="filtroNombresBotonName"><img id="bandera_menu-0" class="bandera_menu" src="bandera_la.svg"></span>
+                <input type="radio" id="filtroNombresBoton1" class="filtroNombresBoton" name="filtroNombresBotonName" checked><img id="bandera_menu-1" class="bandera_menu" src="bandera_en.svg"></span>
+                <input type="radio" id="filtroNombresBoton2" class="filtroNombresBoton" name="filtroNombresBotonName"><img id="bandera_menu-2" class="bandera_menu" src="bandera_es.svg"></span>
+            </div>
+            <div id="menu-lateral-4" class="menu-lateral-4">
+                <span>Modo oscuro</span>
+                <span id="mdi-texto-3">Aquí se puede activar el modo oscuro.</span>
+                <div id="modoOscuroProximamente">Proximamente</div>
+            </div>
         </div>
-        <label id="cambioIdiomaLabelMain">Cambiar modo de idioma: </label>
-        <label>
-            <input type="checkbox" class="cambioIdioma" onclick="cambiar()" id="cambioIdioma" hidden>
-            <span id="CIslider"></span>
-        </label>
     </center>
+    <label for="fin" id="fin1">Mostrar resultados</label>
+    <button type="button" name="afor" id="fin"></button>
+    <label for="copiar" id="copiar1">Copiar resultados</label>
+    <button type="button" name="copy" id="copiar"></button>
     <div class="dinamicoss" id="dinamico">
         <div>
             <textarea type="text" name="personajes" id="per0" placeholder="Personaje"></textarea>
             <textarea type="text" name="diaEnIng" id="ding0" placeholder="Diálogo en inglés"></textarea>
             <textarea type="text" name="diaEnEsp" id="desp0" placeholder="Diálogo en español"></textarea><br />
-            <button class="botonagregar" onclick="agre0(this)">Agregar</button><label>Linea numero 1</label><button class="botoneliminar" onclick="elim(this)">Eliminar</button><br>
+            <button class="botonagregar" onclick="agre0(this)">Agregar</button><label>Línea número 1</label><button class="botoneliminar" onclick="elim(this)">Eliminar</button><br>
             <button class="mezclar" id="mezclarA0" onclick="mezclarA(this)" disabled>Mezclar diálogos Inglés</button><button class="mezclar" id="mezclarB0" onclick="mezclarB(this)" disabled>Mezclar diálogos Español</button>
         </div>
     </div>
     <textarea readonly id="resultado" style="height: 300px; "></textarea>
-    <button type="button" name="afor" id="fin">Mostrar resulados</button>
-    <button type="button" name="copy" id="copiar">Copiar resulados</button>
+     <script>
+       function elseñordelanoite() {
+        window.open('https://youtu.be/8MLeXZLni7Q', '_blank');
+        alert('Me gusto muchisimo The Batman... y el colesterol me va a matar');
+    }
+     </script>
 </body>
 </html>
