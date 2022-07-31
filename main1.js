@@ -30,20 +30,26 @@ document.getElementById("fin").onclick = function () {
     let filtroBotonValor2 = document.getElementById('filtroNombresBoton2');
 
     // Variables para los filtros de nombres
-
+    // /\b()\b/gi;
     
-    let anneBoonchuy = /\b(\b((ana|ann(e|a)?)(\s(boo?(n|b)chuy))?)\b)\b/gi;
-    let sashaWaybright = /\b(sasha?(\s((w|g)aybri?g(ht|th)?))?)\b/gi;
-    let marcyWu = /\b((mar?(cy|ci|ky|ki))(\s(u?wu))?)\b/gi;
-    let sprigPlantar = /\b((s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?)\b/gi;
-    let pollyPlantar = /\b((p?olly|poll?y)(\s(pla?nt(a|e)?r))?)\b/gi;
-    let hopPop = /\b((hop|abu|pap(a|á))\s(p|h)op(\s(pla?nt(a|e)?r))?)\b/gi;
-    let ivySundew = /\b((iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?)\b/gi;
-    let feliciaSundew = /\b((felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?)\b/gi;
-    let sylviaSundew = /\b((s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?)\b/gi;
-    let olivia = /\b(((lady|se(n|ñ)orita)\s)?(oliv(i?a|ia?|í?a|ía?)))\b/gi;
-    let yunan = /\b(((general)\s)?(ju(v|b)ina|yunn?an))\b/gi;
-    let andrias = /\b(((rey)\s)?((an)?drias)(\s(lev(ia|ai)(than|tan)))?)\b/gi;
+    let anneBoonchuy = /\b(\b((ana|ann(e|a)?)(\s+(boo?(n|b)chuy))?)\b)\b/gi;
+    let sashaWaybright = /\b(sasha?(\s+((w|g)aybri?g(ht|th)?))?)\b/gi;
+    let marcyWu = /\b((mar?(cy|ci|ky|ki))(\s+(u?wu))?)\b/gi;
+    let sprigPlantar = /\b((s?pr(i|o)?n?g)(\s+(pla?nt(a|e)?r))?)\b/gi;
+    let pollyPlantar = /\b((p?olly|poll?y)(\s+(pla?nt(a|e)?r))?)\b/gi;
+    let hopPop = /\b((hop|abu|pap(a|á))\s+(p|h)op(\s+(pla?nt(a|e)?r))?)\b/gi;
+    let ivySundew = /\b((iv(i|y)|sol)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?)\b/gi;
+    let feliciaSundew = /\b((felic(i|í)?a|(i|í)a?))(\s+((sundew|sun|dew)|roc(((i|í)?o|(i|í)o?)))?)\b/gi;
+    let sylviaSundew = /\b((s(y|i)lv(i|í)?a|(i|í)a?))(\s+((sundew|sun|dew)|roc(((i|í)?o|(i|í)o?)))?)\b/gi;
+    let olivia = /\b(((lady|se(n|ñ)orita)\s+)?(oliv((i|í)?a|(i|í)a?)))\b/gi;
+    let yunan = /\b(((general)\s+)?(ju(v|b)ina|yunn?an))\b/gi;
+    let andrias = /\b(((rey)\s+)?((an)?drias)(\s+(lev(ia|ai)(than|tan)))?)\b/gi;
+    let grime = /\b((cap(tain|it(á|a))n)\s+)?((grime(sy)?|graim|mugr(e|i)|grimos(o|in)|grimoth?y|mugrer?to))\b/gi;
+    let percy = /\b(perc(y|i))\b/gi;
+    let braddock = /\b(bradd?ock)\b/gi;
+    let fens = /\b(fens)\b/gi;
+    let mire = /\b(m(i|y)re)\b/gi;
+    let bog = /\b(bog)\b/gi;
 
     switch (true) {
         case filtroBotonValor0.checked:
@@ -261,6 +267,105 @@ document.getElementById("fin").onclick = function () {
 
                             case 'espa1':
                                 espa1 = espa1.replace(andrias, '[[Rey Andrias]]');
+                                break
+                        }
+                        break
+
+                        //Ejercito sapo
+
+                    case grime.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(grime, '[[Capitán Mugre|Mugre]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(grime, '[[Capitán Mugre|Mugre]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(grime, '[[Capitán Mugre|Mugre]]');
+                                break
+                        }
+                        break
+
+                    case percy.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(percy, '[[Percy]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(percy, '[[Percy]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(percy, '[[Percy]]');
+                                break
+                        }
+                        break
+
+                    case braddock.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(braddock, '[[Braddock]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(braddock, '[[Braddock]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(braddock, '[[Braddock]]');
+                                break
+                        }
+                        break
+
+                    /* estos personajes aun no tienen paginas
+                    case fens.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(fens, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(fens, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(fens, '[[Capitán Mugre|Grime]]');
+                                break
+                        }
+                        break
+
+                    case grime.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+                        }
+                        break */
+
+                    case bog.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(bog, '[[Bog]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(bog, '[[Bog]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(bog, '[[Bog]]');
                                 break
                         }
                         break
@@ -534,6 +639,106 @@ document.getElementById("fin").onclick = function () {
                                 break
                         }
                         break
+
+                    //Ejercito sapo
+
+                    case grime.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+                        }
+                        break
+
+                    case percy.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(percy, '[[Percy]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(percy, '[[Percy]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(percy, '[[Percy]]');
+                                break
+                        }
+                        break
+
+                    case braddock.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(braddock, '[[Braddock]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(braddock, '[[Braddock]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(braddock, '[[Braddock]]');
+                                break
+                        }
+                        break
+
+                    /* estos personajes aun no tienen paginas
+                    case fens.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(fens, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(fens, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(fens, '[[Capitán Mugre|Grime]]');
+                                break
+                        }
+                        break
+
+                    case grime.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+                        }
+                        break */
+
+                    case bog.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(bog, '[[Bog]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(bog, '[[Bog]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(bog, '[[Bog]]');
+                                break
+                        }
+                        break
+
                 }
 
                 switch (cambioIdioma.checked) {
@@ -802,6 +1007,105 @@ document.getElementById("fin").onclick = function () {
 
                             case 'espa1':
                                 espa1 = espa1.replace(andrias, '[[Rey Andrias]]');
+                                break
+                        }
+                        break
+
+                        //Ejercito sapo
+
+                    case grime.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(grime, '[[Capitán Mugre|Grimoso]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(grime, '[[Capitán Mugre|Grimoso]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(grime, '[[Capitán Mugre|Grimoso]]');
+                                break
+                        }
+                        break
+
+                    case percy.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(percy, '[[Percy]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(percy, '[[Percy]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(percy, '[[Percy]]');
+                                break
+                        }
+                        break
+
+                    case braddock.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(braddock, '[[Braddock]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(braddock, '[[Braddock]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(braddock, '[[Braddock]]');
+                                break
+                        }
+                        break
+
+                    /* estos personajes aun no tienen paginas
+                    case fens.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(fens, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(fens, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(fens, '[[Capitán Mugre|Grime]]');
+                                break
+                        }
+                        break
+
+                    case grime.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(grime, '[[Capitán Mugre|Grime]]');
+                                break
+                        }
+                        break */
+
+                    case bog.test(personajeText):
+                        switch (personajeInput) {
+                            case 'pers1':
+                                pers1 = pers1.replace(bog, '[[Bog]]');
+                                break
+
+                            case 'ingl1':
+                                ingl1 = ingl1.replace(bog, '[[Bog]]');
+                                break
+
+                            case 'espa1':
+                                espa1 = espa1.replace(bog, '[[Bog]]');
                                 break
                         }
                         break
