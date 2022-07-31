@@ -34,7 +34,7 @@ document.getElementById("fin").onclick = function () {
     
     let anneBoonchuy = /\b(\b((ana|ann(e|a)?)(\s+(boo?(n|b)chuy))?)\b)\b/gi;
     let sashaWaybright = /\b(sasha?(\s+((w|g)aybri?g(ht|th)?))?)\b/gi;
-    let marcyWu = /\b((mar?(cy|ci|ky|ki))(\s+(u?wu))?)\b/gi;
+    let marcyWu = /\b((mar(c|k)(y|i)))(\s+(u?wu))?)\b/gi;
     let sprigPlantar = /\b((s?pr(i|o)?n?g)(\s+(pla?nt(a|e)?r))?)\b/gi;
     let pollyPlantar = /\b((p?olly|poll?y)(\s+(pla?nt(a|e)?r))?)\b/gi;
     let hopPop = /\b((hop|abu|pap(a|á))\s+(p|h)op(\s+(pla?nt(a|e)?r))?)\b/gi;
@@ -159,15 +159,15 @@ document.getElementById("fin").onclick = function () {
                     case hopPop.test(personajeText):
                         switch (personajeInput) {
                             case 'pers1':
-                                pers1 = pers1.replace(hopPop, '[[Abu Pop Plantar|Abu Hop]]');
+                                pers1 = pers1.replace(hopPop, '[[Abu Hop Plantar|Abu Hop]]');
                                 break
 
                             case 'ingl1':
-                                ingl1 = ingl1.replace(hopPop, '[[Abu Pop Plantar|Abu Hop]]');
+                                ingl1 = ingl1.replace(hopPop, '[[Abu Hop Plantar|Abu Hop]]');
                                 break
 
                             case 'espa1':
-                                espa1 = espa1.replace(hopPop, '[[Abu Pop Plantar|Abu Hop]]');
+                                espa1 = espa1.replace(hopPop, '[[Abu Hop Plantar|Abu Hop]]');
                                 break
                         }
                         break
@@ -528,15 +528,15 @@ document.getElementById("fin").onclick = function () {
                     case hopPop.test(personajeText):
                         switch (personajeInput) {
                             case 'pers1':
-                                pers1 = pers1.replace(hopPop, '[[Abu Pop Plantar|Hop Hop]]');
+                                pers1 = pers1.replace(hopPop, '[[Abu Hop Plantar|Hop Hop]]');
                                 break
 
                             case 'ingl1':
-                                ingl1 = ingl1.replace(hopPop, '[[Abu Pop Plantar|Hop Hop]]');
+                                ingl1 = ingl1.replace(hopPop, '[[Abu Hop Plantar|Hop Hop]]');
                                 break
 
                             case 'espa1':
-                                espa1 = espa1.replace(hopPop, '[[Abu Pop Plantar|Hop Hop]]');
+                                espa1 = espa1.replace(hopPop, '[[Abu Hop Plantar|Hop Hop]]');
                                 break
                         }
                         break
@@ -899,15 +899,15 @@ document.getElementById("fin").onclick = function () {
                     case hopPop.test(personajeText):
                         switch (personajeInput) {
                             case 'pers1':
-                                pers1 = pers1.replace(hopPop, '[[Abu Pop Plantar|Papá Hop]]');
+                                pers1 = pers1.replace(hopPop, '[[Abu Hop Plantar|Papá Hop]]');
                                 break
 
                             case 'ingl1':
-                                ingl1 = ingl1.replace(hopPop, '[[Abu Pop Plantar|Papá Hop]]');
+                                ingl1 = ingl1.replace(hopPop, '[[Abu Hop Plantar|Papá Hop]]');
                                 break
 
                             case 'espa1':
-                                espa1 = espa1.replace(hopPop, '[[Abu Pop Plantar|Papá Hop]]');
+                                espa1 = espa1.replace(hopPop, '[[Abu Hop Plantar|Papá Hop]]');
                                 break
                         }
                         break
