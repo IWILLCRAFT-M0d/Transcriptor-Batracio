@@ -32,18 +32,18 @@ document.getElementById("fin").onclick = function () {
     // Variables para los filtros de nombres
 
     
-    let anneBoonchuy = /(ana|ann(e|a)?)(\s(boo?(n|b)chuy))?/gi;
-    let sashaWaybright = /sasha?(\s((w|g)aybri?g(ht|th)?))?/gi;
-    let marcyWu = /(mar?(cy|ci|ky|ki))(\s(u?wu))?/gi;
-    let sprigPlantar = /(s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?/gi;
-    let pollyPlantar = /(p?olly|poll?y)(\s(pla?nt(a|e)?r))?/gi;
-    let hopPop = /(hop|abu|pap(a|á))\s(p|h)op(\s(pla?nt(a|e)?r))?/gi;
-    let ivySundew = /(iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi;
-    let feliciaSundew = /(felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi;
-    let sylviaSundew = /(s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?/gi;
-    let olivia = /((lady|se(n|ñ)orita)\s)?(oliv(i?a|ia?|í?a|ía?))/gi;
-    let MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy = /((general)\s)?(ju(v|b)ina|yunn?an)/gi;
-    let andrias = /((rey)\s)?((an)?drias)(\s(lev(ia|ai)(than|tan)))?/gi;
+    let anneBoonchuy = /\b(\b((ana|ann(e|a)?)(\s(boo?(n|b)chuy))?)\b)\b/gi;
+    let sashaWaybright = /\b(sasha?(\s((w|g)aybri?g(ht|th)?))?)\b/gi;
+    let marcyWu = /\b((mar?(cy|ci|ky|ki))(\s(u?wu))?)\b/gi;
+    let sprigPlantar = /\b((s?pr(i|o)?n?g)(\s(pla?nt(a|e)?r))?)\b/gi;
+    let pollyPlantar = /\b((p?olly|poll?y)(\s(pla?nt(a|e)?r))?)\b/gi;
+    let hopPop = /\b((hop|abu|pap(a|á))\s(p|h)op(\s(pla?nt(a|e)?r))?)\b/gi;
+    let ivySundew = /\b((iv(i|y)|sol)(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?)\b/gi;
+    let feliciaSundew = /\b((felic(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?)\b/gi;
+    let sylviaSundew = /\b((s(y|i)lv(i?a|ia?|í?a|ía?))(\s((sundew|sun|dew)|roc(i?o|io?|í?o|ío?)))?)\b/gi;
+    let olivia = /\b(((lady|se(n|ñ)orita)\s)?(oliv(i?a|ia?|í?a|ía?)))\b/gi;
+    let yunan = /\b(((general)\s)?(ju(v|b)ina|yunn?an))\b/gi;
+    let andrias = /\b(((rey)\s)?((an)?drias)(\s(lev(ia|ai)(than|tan)))?)\b/gi;
 
     switch (true) {
         case filtroBotonValor0.checked:
@@ -55,10 +55,7 @@ document.getElementById("fin").onclick = function () {
                 let ingl2 = ingl1.length;
                 let espa2 = espa1.length;
                 
-                if (pers2 > 0 && ingl2 === 0 && espa2 === 0) {
-                    var personajeInput = 'pers1';
-                    var personajeText = pers1;
-                } else if (pers2 === 0 && ingl2 > 0 && espa2 === 0) {
+                if (pers2 === 0 && ingl2 > 0 && espa2 === 0) {
                     var personajeInput = 'ingl1';
                     var personajeText = ingl1;
                 } else if (pers2 === 0 && ingl2 === 0 && espa2 > 0) {
@@ -236,18 +233,18 @@ document.getElementById("fin").onclick = function () {
                         }
                         break
 
-                    case MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy.test(personajeText):
+                    case yunan.test(personajeText):
                         switch (personajeInput) {
                             case 'pers1':
-                                pers1 = pers1.replace(MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy, '[[General Juvina|Juvina]]');
+                                pers1 = pers1.replace(yunan, '[[General Juvina|Juvina]]');
                                 break
 
                             case 'ingl1':
-                                ingl1 = ingl1.replace(MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy, '[[General Juvina|Juvina]]');
+                                ingl1 = ingl1.replace(yunan, '[[General Juvina|Juvina]]');
                                 break
 
                             case 'espa1':
-                                espa1 = espa1.replace(MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy, '[[General Juvina|Juvina]]');
+                                espa1 = espa1.replace(yunan, '[[General Juvina|Juvina]]');
                                 break
                         }
                         break
@@ -506,18 +503,18 @@ document.getElementById("fin").onclick = function () {
                         }
                         break
 
-                    case MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy.test(personajeText):
+                    case yunan.test(personajeText):
                         switch (personajeInput) {
                             case 'pers1':
-                                pers1 = pers1.replace(MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy, '[[General Juvina|Yunan]]');
+                                pers1 = pers1.replace(yunan, '[[General Juvina|Yunan]]');
                                 break
 
                             case 'ingl1':
-                                ingl1 = ingl1.replace(MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy, '[[General Juvina|Yunan]]');
+                                ingl1 = ingl1.replace(yunan, '[[General Juvina|Yunan]]');
                                 break
 
                             case 'espa1':
-                                espa1 = espa1.replace(MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy, '[[General Juvina|Yunan]]');
+                                espa1 = espa1.replace(yunan, '[[General Juvina|Yunan]]');
                                 break
                         }
                         break
@@ -777,18 +774,18 @@ document.getElementById("fin").onclick = function () {
                         }
                         break
 
-                    case MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy.test(personajeText):
+                    case yunan.test(personajeText):
                         switch (personajeInput) {
                             case 'pers1':
-                                pers1 = pers1.replace(MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy, '[[General Juvina|Yunan]]');
+                                pers1 = pers1.replace(yunan, '[[General Juvina|Yunan]]');
                                 break
 
                             case 'ingl1':
-                                ingl1 = ingl1.replace(MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy, '[[General Juvina|Yunan]]');
+                                ingl1 = ingl1.replace(yunan, '[[General Juvina|Yunan]]');
                                 break
 
                             case 'espa1':
-                                espa1 = espa1.replace(MynameisGeneralYunanScourgeoftheSandWarsDefeaterofRagnartheWretchedandtheyoungestnewttoeverachievetherankofgeneralinthegreatNewtopianArmy, '[[General Juvina|Yunan]]');
+                                espa1 = espa1.replace(yunan, '[[General Juvina|Yunan]]');
                                 break
                         }
                         break
