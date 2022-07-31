@@ -34,7 +34,7 @@ document.getElementById("fin").onclick = function () {
     
     let anneBoonchuy = /\b(\b((ana|ann(e|a)?)(\s+(boo?(n|b)chuy))?)\b)\b/gi;
     let sashaWaybright = /\b(sasha?(\s+((w|g)aybri?g(ht|th)?))?)\b/gi;
-    let marcyWu = /\b((mar(c|k)(y|i)))(\s+(u?wu))?)\b/gi;
+    let marcyWu = /\b((mar(c|k)(y|i))(\s+(u?wu))?)\b/gi;
     let sprigPlantar = /\b((s?pr(i|o)?n?g)(\s+(pla?nt(a|e)?r))?)\b/gi;
     let pollyPlantar = /\b((p?olly|poll?y)(\s+(pla?nt(a|e)?r))?)\b/gi;
     let hopPop = /\b((hop|abu|pap(a|á))\s+(p|h)op(\s+(pla?nt(a|e)?r))?)\b/gi;
