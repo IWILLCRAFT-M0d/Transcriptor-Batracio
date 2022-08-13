@@ -32,15 +32,15 @@ document.getElementById("fin").onclick = function () {
     // Variables para los filtros de nombres
     // /\b()\b/gi;
     
-    let anneBoonchuy = /\b(\b((ana|ann(e|a)?)(\s+(boo?(n|b)chuy))?)\b)\b/gi;
+    let anneBoonchuy = /\b((ana|ann(e|a)?)(\s+(boo?(n|b)chuy))?)\b/gi;
     let sashaWaybright = /\b(sasha?(\s+((w|g)aybri?g(ht|th)?))?)\b/gi;
     let marcyWu = /\b((mar(c|k)(y|i))(\s+(u?wu))?)\b/gi;
     let sprigPlantar = /\b((s?pr(i|o)?n?g)(\s+(pla?nt(a|e)?r))?)\b/gi;
     let pollyPlantar = /\b((p?olly|poll?y)(\s+(pla?nt(a|e)?r))?)\b/gi;
     let hopPop = /\b((hop|abu|pap(a|á))\s+(p|h)op(\s+(pla?nt(a|e)?r))?)\b/gi;
     let ivySundew = /\b((iv(i|y)|sol)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?)\b/gi;
-    let feliciaSundew = /\b((felic(i|í)?a|(i|í)a?))(\s+((sundew|sun|dew)|roc(((i|í)?o|(i|í)o?)))?)\b/gi;
-    let sylviaSundew = /\b((s(y|i)lv(i|í)?a|(i|í)a?))(\s+((sundew|sun|dew)|roc(((i|í)?o|(i|í)o?)))?)\b/gi;
+    let feliciaSundew = /\b((felic(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?)\b/gi;
+    let sylviaSundew = /\b((s(y|i)lv(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?)\b/gi;
     let olivia = /\b(((lady|se(n|ñ)orita)\s+)?(oliv((i|í)?a|(i|í)a?)))\b/gi;
     let yunan = /\b(((general)\s+)?(ju(v|b)ina|yunn?an))\b/gi;
     let andrias = /\b(((rey)\s+)?((an)?drias)(\s+(lev(ia|ai)(than|tan)))?)\b/gi;
@@ -189,7 +189,7 @@ document.getElementById("fin").onclick = function () {
                         }
                         break
 
-                    case anneBoonchuy.test(personajeText):
+                    case feliciaSundew.test(personajeText):
                         switch (personajeInput) {
                             case 'pers1':
                                 pers1 = pers1.replace(feliciaSundew, '[[Felicía Rocío|Felicía]]');
@@ -558,7 +558,7 @@ document.getElementById("fin").onclick = function () {
                         }
                         break
 
-                    case anneBoonchuy.test(personajeText):
+                    case feliciaSundew.test(personajeText):
                         switch (personajeInput) {
                             case 'pers1':
                                 pers1 = pers1.replace(feliciaSundew, '[[Felicía Rocío|Felicia]]');
@@ -929,7 +929,7 @@ document.getElementById("fin").onclick = function () {
                         }
                         break
 
-                    case anneBoonchuy.test(personajeText):
+                    case feliciaSundew.test(personajeText):
                         switch (personajeInput) {
                             case 'pers1':
                                 pers1 = pers1.replace(feliciaSundew, '[[Felicía Rocío|Felicia]]');
