@@ -54,7 +54,14 @@ window.onload = function() {
             }
             break
     }
-    }
+
+    document.getElementById('per0').value = '';
+    document.getElementById('ding0').value = '';
+    document.getElementById('desp0').value = '';
+    document.getElementById('per0').style.height = '20px';
+    document.getElementById('ding0').style.height = '20px';
+    document.getElementById('desp0').style.height = '20px';
+}
 
 // Función de agregar lineas
 let agre0 = (e) => {
@@ -260,11 +267,6 @@ din.addEventListener("keyup", e => {
     let digitos0 = event.target.id.match(/\d+/);
     let digitos = parseInt(digitos0);
     let digitosFix = digitos + 1;
-    let digitosRun = digitos - 1;
-
-    let limite = din.children.length - 1;
-    let ids = din.children;
-
     
     let tamales0 = (e.target.scrollHeight);
     let tamales1 = tamales0 - 4;

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <script async src="main0.js" charset="UTF-8"></script>
     <script async src="main1.js" charset="UTF-8"></script>
+    <script async src="main2.js" charset="UTF-8"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo0.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -14,6 +15,7 @@
 <body>
     <center>
         <h1>¡Bienvenidos al transcriptor batracio!</h1>
+        <p>¡La función de cargar lineas puede tener varios problemas! Cualquier problema porfavor reporteselo a Will.</p>
         <a href="https://amphibia.fandom.com/es/wiki/Portada" target="_blank">(Link a la portada de la wiki)</a>
         <p>Aquí tendras herramientas para hacer transcripciones de los episodios de la wiki hispana de Amphibia más cómodamente.</p>
         <div class="menu-lateral">
@@ -36,17 +38,15 @@
                 <span>Cargar texto/subtítulos</span>
                 <span id="mdi-texto-1">Aquí puedes cargar transcripciones a medio hacer o subtítulos de episodios.</span>
                 <div class="cargarSub">
-                    <label class="CGS" id="linea01" for="linea0">Cargar subtítulos en inglés</label>
+                    <label id="linea01" for="linea0">Cargar subtítulos en inglés</label>
                     <input type="file" accept=".srt" class="cargarSubtitulosBotones" id="linea0"/>
                     
-                    <label class="CGS" id="linea11" for="linea1">Cargar subtítulos en español</label>
+                    <label id="linea11" for="linea1">Cargar subtítulos en español</label>
                     <input type="file" accept=".srt" class="cargarSubtitulosBotones" id="linea1"/>
 
-                    <label class="CGS" id="linea21" for="zapato">Cargar transcripción ya hecha</label>
-                    <input type="submit" id="zapato" onClick="elseñordelanoite()" style="display: none;"/> 
-                    <input type="file" accept=".srt" class="cargarSubtitulosBotones" id="linea2"/>
+                    <label id="linea21" for="linea22">Cargar transcripción ya hecha</label>
+                    <button class="cargarSubtitulosBotones" onclick="modoTranscripciones()" id="linea22"></button>
                 </div>
-                <div id="cargarSubProximamente">Proximamente</div>
             </div>
             <div id="menu-lateral-3" class="menu-lateral-3">
                 <span>Filtro de nombres</span>
@@ -75,12 +75,10 @@
             <button class="mezclar" id="mezclarA0" onclick="mezclarA(this)" disabled>Mezclar diálogos Inglés</button><button class="mezclar" id="mezclarB0" onclick="mezclarB(this)" disabled>Mezclar diálogos Español</button>
         </div>
     </div>
+    <div id="cargarTranscripciones" style="display: none;">
+        <textarea id='transcripcionHecha'></textarea>
+        <input type="file" accept=".txt" class="cargarSubtitulosBotones" onchange='cargarTranscripcion()' id="linea2"/>
+    </div>
     <textarea readonly id="resultado" style="height: 300px; "></textarea>
-     <script>
-       function elseñordelanoite() {
-        window.open('https://youtu.be/8MLeXZLni7Q', '_blank');
-        alert('Me gusto muchisimo The Batman... y el colesterol me va a matar');
-    }
-     </script>
 </body>
 </html>
