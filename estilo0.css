@@ -2,49 +2,181 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.linea0, .linea1 {
-    display: none;
+#resultados, #copiar {display: none;}
+
+#cargarTranscripciones {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
-#linea0-1, #linea1-1 {
-    margin-left: 12px;
-    margin-right: 12px;
-}
-
-#CGSM {
-    position: relative;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-.CGS {
-    border: none;
+#resultadosLab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
     background-color: #a6a6a6;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    padding: 9px;
+    top: 70%;
+    right: -162px;
+    color: transparent;
+    transition: all 0.2s;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 1;
+}
+
+#resultadosLab::after {
+    content: url('sync.svg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px 0 0 20px;
+    background-color: #a6a6a6;
+    right: 160px;
+    transition: all 0.2s;
+}
+
+#copiar1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: #a6a6a6;
+    top: 80%;
+    right: -154px;
+    color: transparent;
+    transition: all 0.2s;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 1;
+}
+
+#copiar1::after {
+    content: url('content_copy.svg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px 0 0 20px;
+    background-color: #a6a6a6;
+    right: 152px;
+    transition: all 0.2s;
+}
+
+#copiar1:hover, #resultadosLab:hover {
+    right: 0;
+    color: #000000;
+}
+
+.menu-lateral {
+    position: fixed;
+    top: 10%;
+    right: -165px;
+    background-color: #a6a6a6;
+    height: 350px;
+    width: 215px;
+    z-index: 1;
+    transition: all 0.2s;
+}
+
+.menu-lateral:hover {
+    right: 0px;
+}
+
+.menu-lateral-iconos {
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    z-index: 2;
+}
+
+.menu-lateral-iconos > div {
+    position: relative;
+    background-color: #8e8e8e;
+    height: 45px;
+    width: 40px;
+    left: 10px;
+    margin-top: 35px;
+    border-radius: 7.5px 0 0 7.5px;
+    z-index: 4;
     cursor: pointer;
 }
 
-#cambioIdiomaLabelMain {
-    bottom: 15px;
-    position: relative;
-    font-size: 25px;
+.menu-lateral-iconos > div:hover {
+    background-color: #737373;
 }
 
-#CIslider {
+.menu-lateral-iconos > div > span {
     position: relative;
-    margin-top: 15px;
+    text-align: center;
+    top: 22.5px;
+    transform: translate(35%, -50%);
+    user-select: none;
+    pointer-events: none;
+}
+
+.menu-lateral-1 {
+    display: inline;
+    position: absolute;
+    background-color: #8e8e8e;
+    height: 100%;
+    width: 165px;
+    right: 0%;
+    z-index: 2;
+}
+
+#bandera_cambio {
+    display: inline;
+    position: absolute;
+    height: 32.5px;
+    width: 32.5px;
+    top: 22.5px;
+    transform: translate(15%, -50%);
+}
+
+.menu-lateral-1 > span {
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    right: 82.5px;
+    transform: translateX(50%);
+    width: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#mdi-texto-1 {
+    font-size: 15px;
+    top: 50px;
+}
+
+#mdi-texto-2 {
+    bottom: 85px;
+}
+
+#cambioIdiomaSlider {
+    position: absolute;
     display: inline-block;
     width: 80px;
     height: 45px;
-    background-color: #a6a6a6;
+    right: 82.5px;
+    transform: translateX(50%);
+    background-color: #727272;
     cursor: pointer;
     border-radius: 32px;
+    bottom: 55px;
 }
 
-    #CIslider::after {
+    #cambioIdiomaSlider::after {
         content: '';
         position: absolute;
         width: 30px;
@@ -56,17 +188,169 @@ body {
         transition: all 0.2s;
     }
 
-input[id='cambioIdioma']:checked + #CIslider::after {
+input[id='cambioIdioma']:checked + #cambioIdiomaSlider::after {
     transform: translateX(-35px)
 }
 
-.mezclar {
-    position: relative;
-    margin-top: 20px;
-    left: -2.5%;
+.menu-lateral-2 {
+    display: none;
+    position: absolute;
+    background-color: #8e8e8e;
+    height: 100%;
+    width: 165px;
+    right: 0%;
+    z-index: 2;
 }
 
-button {
+.menu-lateral-2 > span {
+    position: absolute;
+    text-align: center;
+    font-size: 19.5px;
+    right: 82.5px;
+    transform: translateX(50%);
+    width: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.cargarSub {
+    position: absolute;
+    right: 82.5px;
+    transform: translateX(50%);
+    bottom: 30px;
+    display: grid;
+    grid-template-columns: 75px 75px;
+    grid-template-rows: 60px 60px;
+}
+
+.cargarSub > label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #737373;
+    font-size: 10px;
+}
+
+.cargarSub > label:hover {
+    background-color: #525252;
+}
+
+.cargarSubtitulosBotones {
+    display: none;
+}
+
+#ctLabel {
+    grid-column: 1/3;
+}
+
+.menu-lateral-3 {
+    display: none;
+    position: absolute;
+    background-color: #8e8e8e;
+    height: 100%;
+    width: 165px;
+    right: 0%;
+    z-index: 2;
+}
+
+.menu-lateral-3 > span {
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    right: 82.5px;
+    transform: translateX(50%);
+    width: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.bandera_menu {
+    display: inline;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    bottom: 68px;
+    transform: translateX(-50%);
+}
+
+#bandera_menu-0 {
+    left: 36px;
+}
+
+#bandera_menu-1 {
+    left: 79px;
+}
+
+#bandera_menu-2 {
+    left: 121.5px;
+}
+
+.filtroNombresBoton {
+    position: absolute;
+    right: 82.5px;
+    transform: translateX(50%);
+    bottom: 50px;
+}
+
+#filtroNombresBoton0, #filtroNombresIconos0 {
+    right: 125px;
+}
+
+#filtroNombresBoton2, #filtroNombresIconos2 {
+    right: 40px;
+}
+
+.menu-lateral-4 {
+    display: none;
+    position: absolute;
+    background-color: #8e8e8e;
+    height: 100%;
+    width: 165px;
+    right: 0%;
+    z-index: 2;
+}
+
+.menu-lateral-4 > span {
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    right: 82.5px;
+    transform: translateX(50%);
+    width: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#mdi-texto-3 {
+    font-size: 15px;
+    top: 45px;
+}
+
+#modoOscuroProximamente {
+    position: absolute;
+    text-align: center;
+    background-color: #dd0000;
+    height: 25px;
+    width: 155px;
+    top: 50%;
+    right: 82.5px;
+    transform: translateX(50%) rotate(-25deg);
+}
+
+.mezclar0 {
+    position: relative;
+    margin-top: 20px;
+    left: -5px;
+}
+
+.mezclar1 {
+    position: relative;
+    margin-top: 20px;
+    right: 5px;
+}
+
+button, #cargarTranscripcionHecha {
     border: none;
     background-color: #a6a6a6;
     text-decoration: none;
@@ -82,15 +366,15 @@ button {
     transform: translateX(-50%);
 }
 
-#resultado {
+#resultadosTextarea {
     border: 3px solid #a6a6a6;
     border-radius: 16px;
 }
 
 #dinamico > div > textarea {
-    overflow: hidden;
-    display: inline;
-    margin-left: 5px;
+    position: relative;
+    left: 19.9%;
+    transform: translateX(-50%);
     resize: none;
     width: 130px;
     height: 20px;
@@ -101,14 +385,50 @@ button {
 #dinamico > div > textarea:focus {
     outline: none;
     position: relative;
+    left: 20px;
     z-index: 1;
     transform: scale(1.25);
     transition: all 0.2s;
 }
 
+#transcripcionHecha {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 40%;
+    border: 3px solid #a6a6a6;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 20px;
+    resize: none;
+}
+
+#cancelarTranscripcionBoton {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+
+#cargarTranscripcionBoton {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+
+#cargarTranscripcionHecha {
+    position: absolute;
+    top: 60%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+
 @media (min-width: 950px) {
 
-    #resultado {
+    #resultadosTextarea {
         resize: none;
         position: relative;
         text-align: center;
@@ -126,6 +446,8 @@ button {
     }
 
         #dinamico > div {
+            height: 160;
+            width: 470;
             margin-bottom: 10px;
             padding-left: 20px;
             padding-right: 10px;
@@ -144,25 +466,11 @@ button {
                 transition: all 0.2s;
                 background-color: #d9d9d9;
             }
-
-    #fin {
-        position: fixed;
-        top: 300px;
-        right: 50%;
-        transform: translateX(379.5%);
-    }
-
-    #copiar {
-        position: fixed;
-        top: 400px;
-        right: 50%;
-        transform: translateX(400%);
-    }
 }
 
 @media (max-width: 949px) {
 
-    #resultado {
+    #resultadosTextarea {
         resize: none;
         display: block;
         margin-left: auto;
@@ -206,7 +514,7 @@ button {
                 left: 0px;
             }
 
-    #fin {
+    #resultados {
         position: fixed;
         left: 30px;
         top: 575px;
