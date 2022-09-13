@@ -128,9 +128,8 @@ let elim = (e) => {
     let dinTotal = din.childElementCount - 1;
     let idsel0 = event.target.parentElement;
     let idsel1 = idsel0.children[0].id.match(/\d+/);
-    let idsel2 = parseInt(idsel1);
+    let divM = event.target.parentElement;
     if (dinTotal > 0 && idsel2 > 0 && idsel2 < dinTotal) {
-        let divM = e.parentNode;
         din.removeChild(divM);
         recalcularIds();
         textarenaResAdapt(false);
@@ -139,14 +138,12 @@ let elim = (e) => {
     }
 
     else if (dinTotal > 0 && idsel2 === 0) {
-        let divM = e.parentNode;
         din.removeChild(divM);
         recalcularIds();
         textarenaResAdapt(false)
     }
 
     else if (dinTotal > 0 && idsel2 === dinTotal) {
-        let divM = e.parentNode;
         din.removeChild(divM);
         document.getElementById("mezclarA" + (dinTotal - 1)).setAttribute('disabled', "");
         document.getElementById("mezclarB" + (dinTotal - 1)).setAttribute('disabled', "");
