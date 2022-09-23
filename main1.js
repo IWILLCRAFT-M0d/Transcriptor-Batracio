@@ -68,7 +68,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(anneBoonchuy, '[[Anne Boonchuy|Anne]]');
                     break
             }
-            break
 
         case sashaWaybright.test(personajeText):
             switch (personajeInput) {
@@ -84,7 +83,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(sashaWaybright, '[[Sasha Waybright|Sasha]]');
                     break
             }
-            break
 
         case marcyWu.test(personajeText):
             switch (personajeInput) {
@@ -100,7 +98,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(marcyWu, '[[Marcy Wu|Marcy]]');
                     break
             }
-            break
 
         //Ranas: familia Plantar
         case sprigPlantar.test(personajeText):
@@ -117,7 +114,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(sprigPlantar, '[[Sprig Plantar|Sprig]]');
                     break
             }
-            break
         
         case pollyPlantar.test(personajeText):
             switch (personajeInput) {
@@ -133,7 +129,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(pollyPlantar, '[[Polly Plantar|Polly]]');
                     break
             }
-            break
 
         case hopPop.test(personajeText):
             switch (true) {
@@ -185,7 +180,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     }
                     break
             }
-            break
 
         //Ranas: familia Sundew/Rocío
         case ivySundew.test(personajeText):
@@ -308,7 +302,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     }
                     break
                 }
-            break
 
         //Tritones
 
@@ -326,7 +319,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(olivia, '[[Olivia]]');
                     break
                 }
-            break
 
         case yunan.test(personajeText):
             switch (true) {
@@ -362,7 +354,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     }
                     break
             }
-            break
 
         case andrias.test(personajeText):
             switch (personajeInput) {
@@ -378,7 +369,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(andrias, '[[Rey Andrias]]');
                     break
             }
-            break
 
             //Ejercito sapo
 
@@ -432,7 +422,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     }
                     break
                 }
-            break
 
         case percy.test(personajeText):
             switch (personajeInput) {
@@ -448,7 +437,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(percy, '[[Percy]]');
                     break
             }
-            break
 
         case braddock.test(personajeText):
             switch (personajeInput) {
@@ -464,7 +452,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(braddock, '[[Braddock]]');
                     break
             }
-            break
 
         case bog.test(personajeText):
             switch (personajeInput) {
@@ -480,7 +467,6 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(bog, '[[Bog]]');
                     break
             }
-            break
     }
 
     switch (cambioIdioma.checked) {
