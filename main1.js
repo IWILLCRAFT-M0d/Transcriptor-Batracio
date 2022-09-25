@@ -3,15 +3,15 @@ let bandera = document.getElementById('bandera_cambio');
 document.getElementById('menu-lateral-3').addEventListener("click", () => {
     switch (true) {
         case document.getElementById('filtroNombresBoton0').checked:
-            bandera.setAttribute("src", "bandera_la.svg");
+            bandera.setAttribute("src", "/icons/bandera_la.svg");
             break
         
         case document.getElementById('filtroNombresBoton1').checked:
-            bandera.setAttribute("src", "bandera_en.svg");
+            bandera.setAttribute("src", "/icons/bandera_en.svg");
             break
         
         case document.getElementById('filtroNombresBoton2').checked:
-            bandera.setAttribute("src", "bandera_es.svg");
+            bandera.setAttribute("src", "/icons/bandera_es.svg");
             break
         }
     }
@@ -24,22 +24,22 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
     let filtroBotonValor1 = document.getElementById('filtroNombresBoton1');
     let filtroBotonValor2 = document.getElementById('filtroNombresBoton2');
 
-    let anneBoonchuy = /(\[\[)?\b((ana|ann(e|a)?)(\s+(boo?(n|b)chuy))?)\b(.*\]\])?/gi;
-    let sashaWaybright = /(\[\[)?\b(sasha?(\s+((w|g)aybri?g(ht|th)?))?)\b(.*\]\])?/gi;
-    let marcyWu = /(\[\[)?\b((mar(c|k)(y|i))(\s+(u?wu))?)\b(.*\]\])?/gi;
-    let sprigPlantar = /(\[\[)?\b((s?pr(i|o)?n?g)(\s+(pla?nt(a|e)?r))?)\b(.*\]\])?/gi;
-    let pollyPlantar = /(\[\[)?\b((p?olly|poll?y)(\s+(pla?nt(a|e)?r))?)\b(.*\]\])?/gi;
-    let hopPop = /(\[\[)?\b((hop|abu|pap(a|á))\s+(p|h)op(\s+(pla?nt(a|e)?r))?)\b(.*\]\])?/gi;
-    let ivySundew = /(\[\[)?\b((iv(i|y)|sol)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?)\b(.*\]\])?/gi;
-    let feliciaSundew = /(\[\[)?\b((felic(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?)\b(.*\]\])?/gi;
-    let sylviaSundew = /(\[\[)?\b((s(y|i)lv(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?)\b(.*\]\])?/gi;
-    let olivia = /(\[\[)?\b(((lady|se(n|ñ)orita)\s+)?(oliv((i|í)?a|(i|í)a?)))\b(.*\]\])?/gi;
-    let yunan = /(\[\[)?\b(((general)\s+)?(ju(v|b)ina|yunn?an))\b(.*\]\])?/gi;
-    let andrias = /(\[\[)?\b(((rey)\s+)?((an)?drias)(\s+(lev(ia|ai)(than|tan)))?)\b(.*\]\])?/gi;
-    let grime = /(\[\[)?\b((cap(tain|it(á|a))n)\s+)?((grime(sy)?|graim|mugr(e|i)|grimos(o|in)|grimoth?y|mugrer?to))\b(.*\]\])?/gi;
-    let percy = /(\[\[)?\b(perc(y|i))\b(.*\]\])?/gi;
-    let braddock = /(\[\[)?\b(bradd?ock)\b(.*\]\])?/gi;
-    let bog = /(\[\[)?\b(bog)\b(.*\]\])?/gi;
+    let anneBoonchuy = /(\[{2})?\b(ana|ann(e|a)?)(\s+(boo?(n|b)chuy))?\b(\|.+?\]{2})?/gi;
+    let sashaWaybright = /(\[{2})?\bsasha?(\s+((w|g)aybri?g(ht|th)?))?\b(\|.+?\]{2})?/gi;
+    let marcyWu = /(\[{2})?\b(mar(c|k)(y|i))(\s+(u?wu))?\b(\|.+?\]{2})?/gi;
+    let sprigPlantar = /(\[{2})?\b(s?pr(i|o)?n?g)(\s+(pla?nt(a|e)?r))?\b(\|.+?\]{2})?/gi;
+    let pollyPlantar = /(\[{2})?\b(p?olly|poll?y)(\s+(pla?nt(a|e)?r))?\b(\|.+?\]{2})?/gi;
+    let hopPop = /(\[{2})?\b(hop|abu|pap(a|á))\s+(p|h)op(\s+(pla?nt(a|e)?r))?\b(\|.+?\]{2})?/gi;
+    let ivySundew = /(\[{2})?\b(iv(i|y)|sol)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?\b(\|.+?\]{2})?/gi;
+    let feliciaSundew = /(\[{2})?\b(felic(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?\b(\|.+?\]{2})?/gi;
+    let sylviaSundew = /(\[{2})?\b(s(y|i)lv(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?\b(\|.+?\]{2})?/gi;
+    let olivia = /(\[{2})?\b((lady|se(n|ñ)orita)\s+)?(oliv((i|í)?a|(i|í)a?))\b(\|.+?\]{2})?/gi;
+    let yunan = /(\[{2})?\b((general)\s+)?(ju(v|b)ina|yunn?an)\b(\|.+?\]{2})?/gi;
+    let andrias = /(\[{2})?\b((rey)\s+)?((an)?drias)(\s+(lev(ia|ai)(than|tan)))?\b(\|.+?\]{2})?/gi;
+    let grime = /(\[{2})?\b((cap(tain|it(á|a))n)\s+)?(grime(sy)?|graim|mugr(e|i)|grimos(o|in)|grimoth?y|mugrer?to)\b(\|.+?\]{2})?/gi;
+    let percy = /(\[{2})?\bperc(y|i)\b(\|.+?\]{2})?/gi;
+    let braddock = /(\[{2})?\bbradd?ock\b(\|.+?\]{2})?/gi;
+    let bog = /(\[{2})?\bbog\b(\|.+?\]{2})?/gi;
 
     if (pers2 === 0 && ingl2 > 0 && espa2 === 0) {
         var personajeInput = 'ingl1';
@@ -467,6 +467,17 @@ function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
                     espa1 = espa1.replace(bog, '[[Bog]]');
                     break
             }
+    }
+
+    if (/\[+.*\]+/g.test(pers1) === true) {
+        let redireccionTempFix = pers1.replace(/\[+/g, '[[') 
+        pers1 = redireccionTempFix.replace(/\]+/g, ']]') 
+    } if (/\[+.*\]+/g.test(ingl1) === true) {
+        let redireccionTempFix = ingl1.replace(/\[+/g, '[[') 
+        ingl1 = redireccionTempFix.replace(/\]+/g, ']]') 
+    } if (/\[+.*\]+/g.test(espa1) === true) {
+        let redireccionTempFix = espa1.replace(/\[+/g, '[[') 
+        espa1 = redireccionTempFix.replace(/\]+/g, ']]') 
     }
 
     switch (cambioIdioma.checked) {
