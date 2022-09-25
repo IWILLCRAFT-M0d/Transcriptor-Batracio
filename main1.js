@@ -3,15 +3,15 @@ let bandera = document.getElementById('bandera_cambio');
 document.getElementById('menu-lateral-3').addEventListener("click", () => {
     switch (true) {
         case document.getElementById('filtroNombresBoton0').checked:
-            bandera.setAttribute("src", "/icons/bandera_la.svg");
+            bandera.setAttribute("src", "bandera_la.svg");
             break
         
         case document.getElementById('filtroNombresBoton1').checked:
-            bandera.setAttribute("src", "/icons/bandera_en.svg");
+            bandera.setAttribute("src", "bandera_en.svg");
             break
         
         case document.getElementById('filtroNombresBoton2').checked:
-            bandera.setAttribute("src", "/icons/bandera_es.svg");
+            bandera.setAttribute("src", "bandera_es.svg");
             break
         }
     }
