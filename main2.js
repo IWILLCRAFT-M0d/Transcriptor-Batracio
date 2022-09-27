@@ -119,148 +119,83 @@ function cargarTranscripcionDisplayResults(finger, loop, valores, caso1, caso2, 
     }
 }
 
-function detectorRedirecciones(split0, redireccionOriginal, numero, textoOriginal) {
+// Función que reemplaza las redirecciones por los nombres normales al cargar transcripciones
+function detectorRedirecciones(textoOriginal) {
 
-    let filtroBotonValor0 = document.getElementById('filtroNombresBoton0');
-    let filtroBotonValor1 = document.getElementById('filtroNombresBoton1');
-    let filtroBotonValor2 = document.getElementById('filtroNombresBoton2');
+    let anneBoonchuy = /(\[{2})?\b(ana|ann(e|a)?)(\s+(boo?(n|b)chuy))?\b((\|.*?)?\]{2})?/gi;
+    let sashaWaybright = /(\[{2})?\bsasha?(\s+((w|g)aybri?g(ht|th)?))?\b((\|.*?)?\]{2})?/gi;
+    let marcyWu = /(\[{2})?\b(mar(c|k)(y|i))(\s+(u?wu))?\b((\|.*?)?\]{2})?/gi;
+    let sprigPlantar = /(\[{2})?\b(s?pr(i|o)?n?g)(\s+(pla?nt(a|e)?r))?\b((\|.*?)?\]{2})?/gi;
+    let pollyPlantar = /(\[{2})?\b(p?olly|poll?y)(\s+(pla?nt(a|e)?r))?\b((\|.*?)?\]{2})?/gi;
+    let hopPop = /(\[{2})?\b(hop|abu|pap(a|á))\s+(p|h)op(\s+(pla?nt(a|e)?r))?\b((\|.*?)?\]{2})?/gi;
+    let ivySundew = /(\[{2})?\b(iv(i|y)|sol)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?\b((\|.*?)?\]{2})?/gi;
+    let feliciaSundew = /(\[{2})?\b(felic(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?\b((\|.*?)?\]{2})?/gi;
+    let sylviaSundew = /(\[{2})?\b(s(y|i)lv(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?\b((\|.*?)?\]{2})?/gi;
+    let olivia = /(\[{2})?\b((lady|se(n|ñ)orita)\s+)?(oliv((i|í)?a|(i|í)a?))\b((\|.*?)?\]{2})?/gi;
+    let yunan = /(\[{2})?\b((general)\s+)?(ju(v|b)ina|yunn?an)\b((\|.*?)?\]{2})?/gi;
+    let andrias = /(\[{2})?\b((rey)\s+)?((an)?drias)(\s+(lev(ia|ai)(than|tan)))?\b((\|.*?)?\]{2})?/gi;
+    let grime = /(\[{2})?\b((cap(tain|it(á|a))n)\s+)?(grime(sy)?|graim|mugr(e|i)|grimos(o|in)|grimoth?y|mugrer?to)\b((\|.*?)?\]{2})?/gi;
+    let percy = /(\[{2})?\bperc(y|i)\b((\|.*?)?\]{2})?/gi;
+    let braddock = /(\[{2})?\bbradd?ock\b((\|.*?)?\]{2})?/gi;
+    let bog = /(\[{2})?\bbog\b((\|.*?)?\]{2})?/gi;
 
-    let anneBoonchuy = /(\[\[)?\b((ana|ann(e|a)?)(\s+(boo?(n|b)chuy))?)\b/gi;
-    let sashaWaybright = /(\[\[)?\b(sasha?(\s+((w|g)aybri?g(ht|th)?))?)\b/gi;
-    let marcyWu = /(\[\[)?\b((mar(c|k)(y|i))(\s+(u?wu))?)\b/gi;
-    let sprigPlantar = /(\[\[)?\b((s?pr(i|o)?n?g)(\s+(pla?nt(a|e)?r))?)\b/gi;
-    let pollyPlantar = /(\[\[)?\b((p?olly|poll?y)(\s+(pla?nt(a|e)?r))?)\b/gi;
-    let hopPop = /(\[\[)?\b((hop|abu|pap(a|á))\s+(p|h)op(\s+(pla?nt(a|e)?r))?)\b/gi;
-    let ivySundew = /(\[\[)?\b((iv(i|y)|sol)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?)\b/gi;
-    let feliciaSundew = /(\[\[)?\b((felic(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?)\b/gi;
-    let sylviaSundew = /(\[\[)?\b((s(y|i)lv(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?)\b/gi;
-    let olivia = /(\[\[)?\b(((lady|se(n|ñ)orita)\s+)?(oliv((i|í)?a|(i|í)a?)))\b/gi;
-    let yunan = /(\[\[)?\b(((general)\s+)?(ju(v|b)ina|yunn?an))\b/gi;
-    let andrias = /(\[\[)?\b(((rey)\s+)?((an)?drias)(\s+(lev(ia|ai)(than|tan)))?)\b/gi;
-    let grime = /(\[\[)?\b((cap(tain|it(á|a))n)\s+)?((grime(sy)?|graim|mugr(e|i)|grimos(o|in)|grimoth?y|mugrer?to))\b/gi;
-    let percy = /(\[\[)?\b(perc(y|i))\b/gi;
-    let braddock = /(\[\[)?\b(bradd?ock)\b/gi;
-    let bog = /(\[\[)?\b(bog)\b/gi;
+    // TRC = Text redirection change
+    let TRC_0 = textoOriginal.replace(anneBoonchuy, 'Anne')
+    let TRC_1 = TRC_0.replace(sashaWaybright, 'Sasha')
+    let TRC_2 = TRC_1.replace(marcyWu, 'Marcy')
+    let TRC_3 = TRC_2.replace(sprigPlantar, 'Sprig')
+    let TRC_4 = TRC_3.replace(pollyPlantar, 'Polly')
+    switch (true) {
+        case document.getElementById('filtroNombresBoton0').checked:
+            var TRC_5 = TRC_4.replace(hopPop, 'Abu Hop')
+            break
+        
+        case document.getElementById('filtroNombresBoton1').checked:
+            var TRC_5 = TRC_4.replace(hopPop, 'Hop Pop')
+            break
+        
+        case document.getElementById('filtroNombresBoton2').checked:
+            var TRC_5 = TRC_4.replace(hopPop, 'Papá Hop')
+            break
+    }
+    
+    let TRC_6 = TRC_5.replace(ivySundew, 'Ivy')
+    let TRC_7 = TRC_6.replace(feliciaSundew, 'Felicía')
+    let TRC_8 = TRC_7.replace(sylviaSundew, 'Silvía')
+    let TRC_9 = TRC_8.replace(olivia, 'Lady Olivia')
 
     switch (true) {
-        //Humanos
-        case anneBoonchuy.test(split0):
-            let redireccionFix0 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Anne');
-            return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix0);
-
-        case sashaWaybright.test(split0):
-            let redireccionFix1 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Sasha');
-            return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix1);
-
-        case marcyWu.test(split0):
-            let redireccionFix2 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Marcy');
-            return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix2);
-
-
-        //Ranas: familia Plantar
-        case sprigPlantar.test(split0):
-            let redireccionFix3 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Sprig');
-            return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix3);
-
-        case pollyPlantar.test(split0):
-            let redireccionFix4 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Polly');
-            return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix4);
-
-        case hopPop.test(split0):
-            switch (true) {
-                case filtroBotonValor0.checked:
-                let redireccionFix5_1 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Abu Hop');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix5_1);
-
-                case filtroBotonValor1.checked:
-                let redireccionFix5_2 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Hop Pop');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix5_2);
-
-                case filtroBotonValor2.checked:
-                let redireccionFix5_3 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Papá Hop');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix5_3);
-            }
-
-
-        //Ranas: familia Sundew/Rocío
-        case ivySundew.test(split0):
-            let redireccionFix6 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Ivy'); //esto no es un error, realmente lo deje como Ivy en caso de tener el modo latino activado... de verdad que nombre tan malo le pusieron en latino
-            return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix6);
-
-        case feliciaSundew.test(split0):
-
-            if (filtroBotonValor0.checked === true) {
-                let redireccionFix = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Felicía');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix);
-            } else {
-                let redireccionFix = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Felicia');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix);
-            }
-
-        case sylviaSundew.test(split0):
-
-            if (filtroBotonValor1.checked === true) {
-                let redireccionFix = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Sylvia');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix);
-            } else {
-                let redireccionFix = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Silvia');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix);
-            }
-        
-        
-        //Tritones
-        case olivia.test(split0):
-            let redireccionFix7 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Olivia');
-            return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix7);
-
-        case yunan.test(split0):
-            if (filtroBotonValor0.checked === true) {
-                let redireccionFix = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Juvina');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix);
-            } else {
-                let redireccionFix = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Yunan');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix);
-            }
-
-        case andrias.test(split0):
-            let redireccionFix8 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Andrias');
-            return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix8);
-
-        case grime.test(split0):
-            switch (true) {
-                case filtroBotonValor0.checked:
-                let redireccionFix9_1 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Mugre');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix9_1);
-
-                case filtroBotonValor1.checked:
-                let redireccionFix9_2 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Grime');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix9_2);
-
-                case filtroBotonValor2.checked:
-                let redireccionFix9_3 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Grimoso');
-                    return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix9_3);
-            }
-
-        case braddock.test(split0):
-            let redireccionFix10 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Braddock');
-            return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix10);
-
-        case percy.test(split0):
-            let redireccionFix11 = redireccionOriginal[numero].replace(/\[\[?.*?\]?\]/g, 'Percy');
-            return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix11);
+        case document.getElementById('filtroNombresBoton0').checked:
+            var TRC_10 = TRC_9.replace(yunan, 'Juvina')
+            break
         
         default:
-            if ((/\|/g.test(textoOriginal)) === true) {
-                let redireccionFix = redireccionOriginal[numero].replace(/\|/g, '<lineatemp>');
-                return textoOriginal.replace(/\[\[?.*?\]?\]/g, redireccionFix);
-            } else {
-                return textoOriginal
-            }
+            var TRC_10 = TRC_9.replace(yunan, 'Yunan')
+            break
     }
+
+    let TRC_11 = TRC_10.replace(andrias, 'Andrias')
+    
+    switch (true) {
+        case document.getElementById('filtroNombresBoton0').checked:
+            var TRC_12 = TRC_11.replace(grime, 'Mugre')
+            break
+        
+        case document.getElementById('filtroNombresBoton1').checked:
+            var TRC_12 = TRC_11.replace(grime, 'Grime')
+            break
+        
+        case document.getElementById('filtroNombresBoton2').checked:
+            var TRC_12 = TRC_11.replace(grime, 'Mugroso')
+            break
+    }
+
+    return TRC_12
 }
 
 // Función para cargar transcripciones
 function trancripcionesMetodo(contenidoTranscripcion) {
+
     let resA = contenidoTranscripcion.match(/{{(.*?)}}/g);
     let DTEfiltro = /\b(DTE)\b/i;
     let DTfiltro = /\b(DT)\b/i;
@@ -268,94 +203,34 @@ function trancripcionesMetodo(contenidoTranscripcion) {
     for (let i = 0; i < resA.length; i++) {
         let resB = resA[i].replace(/{{\s*dte?\s*\|+\s*/i, '')
         let resC = resB.replace(/\s*}}/, '')
+        let resD = detectorRedirecciones(resC);
+        let index = 0;
 
         switch (true) {
-            case DTEfiltro.test(resA[0]):
+            case DTfiltro.test(resA[0]):
                 switch (true) {
-                    case /{{(.+)\|\|\|/i.test(resA[i]):
-                        if ((/\[\[?.*?\]?\]/g.test(resC)) === true) {
-                            let DTE_3_1_0 = resC.match(/\[\[?.*?\]?\]/g);
-                            if ((/\|/g.test(resC)) === true) {
-                                for (let j = 0; j < DTE_3_1_0.length; j++) {
-                                    let DTE_3_1_1 = DTE_3_1_0[j].split('|');
-                                    var DTE_3_N = detectorRedirecciones(DTE_3_1_1[0], DTE_3_1_0, j, resC)
-                                }
-                            } else {
-                                for (let j = 0; j < DTE_3_1_0.length; j++) {
-                                    let DTE_3_1_1 = DTE_3_1_0[j];
-                                    var DTE_3_N = detectorRedirecciones(DTE_3_1_1, DTE_3_1_0, j, resC)
-                                }
-                            }
-                        } else {
-                            var DTE_3_N = resC;
-                        }
-
-                        let DTE_3_F = DTE_3_N.replace(/<lineatemp>/g, '|')
-
-                        cargarTranscripcionDisplayResults ('1', i, resTotal, DTE_3_F)
-                        break
-
                     case /{{(.+)\|\|/i.test(resA[i]):
-
-                        if ((/\[\[?.*?\]?\]/g.test(resC)) === true) {
-                            let DTE_2_1_0 = resC.match(/\[\[?.*?\]?\]/g);
-                            if ((/\|/g.test(resC)) === true) {
-                                for (let j = 0; j < DTE_2_1_0.length; j++) {
-                                    let DTE_2_1_1 = DTE_2_1_0[j].split('|');
-                                    var DTE_2_N = detectorRedirecciones(DTE_2_1_1[0], DTE_2_1_0, j, resC)
-                                }
-                            } else {
-                                for (let j = 0; j < DTE_2_1_0.length; j++) {
-                                    let DTE_2_1_1 = DTE_2_1_0[j];
-                                    var DTE_2_N = detectorRedirecciones(DTE_2_1_1, DTE_2_1_0, j, resC)
-                                }
-                            }
-                        } else {
-                            var DTE_2_N = resC;
-                        }
-
-                        let DTE_2_0 = DTE_2_N.split("|");
-                        let DTE_2_0_1 = DTE_2_0[0].replace(/\s+$/, '')
-                        let DTE_2_0_2 = DTE_2_0_1.replace(/^\s+/, '')
-                        let DTE_2_1_1 = DTE_2_0[1].replace(/\s+$/, '')
-                        let DTE_2_1_2 = DTE_2_1_1.replace(/^\s+/, '')
-                        let DTE_2_0_F = DTE_2_0_2.replace(/<lineatemp>/g, '|')
-                        let DTE_2_1_F = DTE_2_1_2.replace(/<lineatemp>/g, '|')
-
-                        cargarTranscripcionDisplayResults ('2', i, resTotal, DTE_2_0_F, DTE_2_1_F)
+                        cargarTranscripcionDisplayResults ('1', i, resTotal, resD)
                         break
 
                     case /{{(.+)\|/i.test(resA[i]):
-
-                        if ((/\[\[?.*?\]?\]/g.test(resC)) === true) {
-                            let DTE_1_1_0 = resC.match(/\[\[?.*?\]?\]/g);
-                            if ((/\|/g.test(resC)) === true) {
-                                for (let j = 0; j < DTE_1_1_0.length; j++) {
-                                    let DTE_1_1_1 = DTE_1_1_0[j].split('|');
-                                    var DTE_1_N = detectorRedirecciones(DTE_1_1_1[0], DTE_1_1_0, j, resC)
-                                }
-                            } else {
-                                for (let j = 0; j < DTE_1_1_0.length; j++) {
-                                    let DTE_1_1_1 = DTE_1_1_0[j];
-                                    var DTE_1_N = detectorRedirecciones(DTE_1_1_1, DTE_1_1_0, j, resC)
-                                }
-                            }
+                        if (/\[\[?.*?\]?\]/g.test(resD) === true) {
+                            let LR_0 = resD.match(/\[\[?.*?\]?\]/g)
+                            let LR_1 = LR_0.map(DTE => DTE.replace(/\|/g,'<lineatemp>'));
+                            var DT_1_F = resD.replace(/\[\[?.*?\]?\]/g, () => LR_1[index++]);
                         } else {
-                            var DTE_1_N = resC;
+                            var DT_1_F = resD
                         }
 
-                        let DTE_1_0 = DTE_1_N.split("|");
-                        let DTE_1_0_1 = DTE_1_0[0].replace(/\s+$/, '')
-                        let DTE_1_0_2 = DTE_1_0_1.replace(/^\s+/, '')
-                        let DTE_1_1_1 = DTE_1_0[1].replace(/\s+$/, '')
-                        let DTE_1_1_2 = DTE_1_1_1.replace(/^\s+/, '')
-                        let DTE_1_2_1 = DTE_1_0[2].replace(/\s+$/, '')
-                        let DTE_1_2_2 = DTE_1_2_1.replace(/^\s+/, '')
-                        let DTE_1_0_F = DTE_1_0_2.replace(/<lineatemp>/g, '|')
-                        let DTE_1_1_F = DTE_1_1_2.replace(/<lineatemp>/g, '|')
-                        let DTE_1_2_F = DTE_1_2_2.replace(/<lineatemp>/g, '|')
+                        let DT_1_S = DT_1_F.split("|");
+                        let DT_1_0_1 = DT_1_S[0].replace(/\s+$/, '')
+                        let DT_1_0_2 = DT_1_0_1.replace(/^\s+/, '')
+                        let DT_1_1_1 = DT_1_S[1].replace(/\s+$/, '')
+                        let DT_1_1_2 = DT_1_1_1.replace(/^\s+/, '')
+                        let DT_1_0_F = DT_1_0_2.replace(/<lineatemp>/g, '|')
+                        let DT_1_1_F = DT_1_1_2.replace(/<lineatemp>/g, '|')
 
-                        cargarTranscripcionDisplayResults ('3', i, resTotal, DTE_1_0_F, DTE_1_1_F, DTE_1_2_F)
+                        cargarTranscripcionDisplayResults ('2', i, resTotal, DT_1_0_F, DT_1_1_F)
                         break
 
                     default:
@@ -364,60 +239,53 @@ function trancripcionesMetodo(contenidoTranscripcion) {
                 }
                 break
 
-
-            case DTfiltro.test(resA[0]):
+            case DTEfiltro.test(resA[0]):
                 switch (true) {
+                    case /{{(.+)\|\|\|/i.test(resA[i]):
+                        cargarTranscripcionDisplayResults ('1', i, resTotal, resD)
+                        break
+
                     case /{{(.+)\|\|/i.test(resA[i]):
-                        if ((/\[\[?.*?\]?\]/g.test(resC)) === true) {
-                            let DT_2_1_0 = resC.match(/\[\[?.*?\]?\]/g);
-                            if ((/\|/g.test(resC)) === true) {
-                                for (let j = 0; j < DT_2_1_0.length; j++) {
-                                    let DT_2_1_1 = DT_2_1_0[j].split('|');
-                                    var DT_2_N = detectorRedirecciones(DT_2_1_1[0], DT_2_1_0, j, resC)
-                                }
-                            } else {
-                                for (let j = 0; j < DT_2_1_0.length; j++) {
-                                    let DT_2_1_1 = DT_2_1_0[j];
-                                    var DT_2_N = detectorRedirecciones(DT_2_1_1, DT_2_1_0, j, resC)
-                                }
-                            }
+                        if (/\[\[?.*?\]?\]/g.test(resD) === true) {
+                            let LR_0 = resD.match(/\[\[?.*?\]?\]/g)
+                            let LR_1 = LR_0.map(DTE => DTE.replace(/\|/g,'<lineatemp>'));
+                            var DTE_2_F = resD.replace(/\[\[?.*?\]?\]/g, () => LR_1[index++]);
                         } else {
-                            var DT_2_N = resC;
+                            var DTE_2_F = resD
                         }
 
-                        let DT_2_F = DT_2_N.replace(/<lineatemp>/g, '|')
+                        let DTE_2_S = DTE_2_F.split("|");
+                        let DTE_2_0_1 = DTE_2_S[0].replace(/\s+$/, '')
+                        let DTE_2_0_2 = DTE_2_0_1.replace(/^\s+/, '')
+                        let DTE_2_1_1 = DTE_2_S[1].replace(/\s+$/, '')
+                        let DTE_2_1_2 = DTE_2_1_1.replace(/^\s+/, '')
+                        let DTE_2_0_F = DTE_2_0_2.replace(/<lineatemp>/g, '|')
+                        let DTE_2_1_F = DTE_2_1_2.replace(/<lineatemp>/g, '|')
 
-                        cargarTranscripcionDisplayResults ('1', i, resTotal, DT_2_F)
+                        cargarTranscripcionDisplayResults ('2', i, resTotal, DTE_2_0_F, DTE_2_1_F)
                         break
 
                     case /{{(.+)\|/i.test(resA[i]):
-
-                        if ((/\[\[?.*?\]?\]/g.test(resC)) === true) {
-                            let DT_1_1_0 = resC.match(/\[\[?.*?\]?\]/g);
-                            if ((/\|/g.test(resC)) === true) {
-                                for (let j = 0; j < DT_1_1_0.length; j++) {
-                                    let DT_1_1_1 = DT_1_1_0[j].split('|');
-                                    var DT_1_N = detectorRedirecciones(DT_1_1_1[0], DT_1_1_0, j, resC)
-                                }
-                            } else {
-                                for (let j = 0; j < DT_1_1_0.length; j++) {
-                                    let DT_1_1_1 = DT_1_1_0[j];
-                                    var DT_1_N = detectorRedirecciones(DT_1_1_1, DT_1_1_0, j, resC)
-                                }
-                            }
+                        if (/\[\[?.*?\]?\]/g.test(resD) === true) {
+                            let LR_0 = resD.match(/\[\[?.*?\]?\]/g)
+                            let LR_1 = LR_0.map(DTE => DTE.replace(/\|/g,'<lineatemp>'));
+                            var DTE_1_F = resD.replace(/\[\[?.*?\]?\]/g, () => LR_1[index++]);
                         } else {
-                            var DT_1_N = resC;
+                            var DTE_1_F = resD
                         }
 
-                        let DT_1_0 = DT_1_N.split("|");
-                        let DT_1_0_1 = DT_1_0[0].replace(/\s+$/, '')
-                        let DT_1_0_2 = DT_1_0_1.replace(/^\s+/, '')
-                        let DT_1_1_1 = DT_1_0[1].replace(/\s+$/, '')
-                        let DT_1_1_2 = DT_1_1_1.replace(/^\s+/, '')
-                        let DT_1_0_F = DT_1_0_2.replace(/<lineatemp>/g, '|')
-                        let DT_1_1_F = DT_1_1_2.replace(/<lineatemp>/g, '|')
+                        let DTE_1_S = DTE_1_F.split("|");
+                        let DTE_1_0_1 = DTE_1_S[0].replace(/\s+$/, '')
+                        let DTE_1_0_2 = DTE_1_0_1.replace(/^\s+/, '')
+                        let DTE_1_1_1 = DTE_1_S[1].replace(/\s+$/, '')
+                        let DTE_1_1_2 = DTE_1_1_1.replace(/^\s+/, '')
+                        let DTE_1_2_1 = DTE_1_S[2].replace(/\s+$/, '')
+                        let DTE_1_2_2 = DTE_1_2_1.replace(/^\s+/, '')
+                        let DTE_1_0_F = DTE_1_0_2.replace(/<lineatemp>/g, '|')
+                        let DTE_1_1_F = DTE_1_1_2.replace(/<lineatemp>/g, '|')
+                        let DTE_1_2_F = DTE_1_2_2.replace(/<lineatemp>/g, '|')
 
-                        cargarTranscripcionDisplayResults ('2', i, resTotal, DT_1_0_F, DT_1_1_F)
+                        cargarTranscripcionDisplayResults ('3', i, resTotal, DTE_1_0_F, DTE_1_1_F, DTE_1_2_F)
                         break
 
                     default:
