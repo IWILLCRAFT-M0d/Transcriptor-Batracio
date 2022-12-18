@@ -26,10 +26,10 @@ function nuevaCasilla (tipoDeNuevaCasilla) {
 
         case 2:
         div.innerHTML =`<textarea type="text" name="personajes" id="" placeholder="Personaje"></textarea>
-<textarea type="text" name="diaEnIng" id="" placeholder="Diálogo"></textarea>
-<textarea type="text" name="diaEnEsp" id="" placeholder="Diálogo en español" style="visibility: hidden;"></textarea>
-<button class="addBtn" onclick="nuevaCasilla('manual')">Agregar</button><label class="centerText"></label><button class="delBtn" onclick="elim()">Eliminar</button>
-<button class="mixL" id="" onclick="mixRow('left')">Mezclar diálogos</button><button class="mixR" id="" onclick="mixRow('right')" style="visibility: hidden">Mezclar diálogos Español</button>`;
+<textarea type="text" name="diaEnIng" id="" style="grid-column: 2 / 4; width: 500px;" placeholder="Diálogo"></textarea>
+<textarea type="text" name="diaEnEsp" id="" placeholder="Diálogo en español" style="display: none;"></textarea>
+<button class="addBtn" onclick="nuevaCasilla('manual')" style="grid-area: 2 / 1;">Agregar</button><label class="centerText" style="grid-area: 2 / 2;"></label><button class="delBtn" onclick="elim()" style="grid-area: 2 / 3;">Eliminar</button>
+<button class="mixL" id="" onclick="mixRow('left')" style="grid-area: 3 / 2;">Mezclar diálogos</button><button class="mixR" id="" onclick="mixRow('right')" style="display: none">Mezclar diálogos Español</button>`;
             break
     }
 

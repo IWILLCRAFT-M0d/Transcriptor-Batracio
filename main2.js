@@ -322,16 +322,17 @@ function detectorRedirecciones(textoOriginal) {
     let TRC_2 = TRC_1.replace(marcyWu, 'Marcy')
     let TRC_3 = TRC_2.replace(sprigPlantar, 'Sprig')
     let TRC_4 = TRC_3.replace(pollyPlantar, 'Polly')
-    switch (true) {
-        case document.getElementById('filtroNombresBoton0').checked:
-            var TRC_5 = TRC_4.replace(hopPop, 'Abu Hop')
-            break
-        
-        case document.getElementById('filtroNombresBoton1').checked:
+    
+    switch (langVal) {
+        case 1:
             var TRC_5 = TRC_4.replace(hopPop, 'Hop Pop')
             break
         
-        case document.getElementById('filtroNombresBoton2').checked:
+        case 2:
+            var TRC_5 = TRC_4.replace(hopPop, 'Abu Hop')
+            break
+        
+        case 3:
             var TRC_5 = TRC_4.replace(hopPop, 'Papá Hop')
             break
     }
@@ -341,8 +342,8 @@ function detectorRedirecciones(textoOriginal) {
     let TRC_8 = TRC_7.replace(sylviaSundew, 'Silvía')
     let TRC_9 = TRC_8.replace(olivia, 'Lady Olivia')
 
-    switch (true) {
-        case document.getElementById('filtroNombresBoton0').checked:
+    switch (langVal) {
+        case 2:
             var TRC_10 = TRC_9.replace(yunan, 'Juvina')
             break
         
@@ -353,16 +354,16 @@ function detectorRedirecciones(textoOriginal) {
 
     let TRC_11 = TRC_10.replace(andrias, 'Andrias')
     
-    switch (true) {
-        case document.getElementById('filtroNombresBoton0').checked:
-            var TRC_12 = TRC_11.replace(grime, 'Mugre')
-            break
-        
-        case document.getElementById('filtroNombresBoton1').checked:
+    switch (langVal) {
+        case 1:
             var TRC_12 = TRC_11.replace(grime, 'Grime')
             break
         
-        case document.getElementById('filtroNombresBoton2').checked:
+        case 2:
+            var TRC_12 = TRC_11.replace(grime, 'Mugre')
+            break
+        
+        case 3:
             var TRC_12 = TRC_11.replace(grime, 'Mugroso')
             break
     }
