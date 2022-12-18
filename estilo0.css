@@ -1,220 +1,224 @@
-body {
+* {
+    padding: 0;
+    margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #e6e6e6;
+    font-size: 20px;
 }
 
-.linea0, .linea1 {
-    display: none;
-}
-
-#linea0-1, #linea1-1 {
-    margin-left: 12px;
-    margin-right: 12px;
-}
-
-#CGSM {
-    position: relative;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-.CGS {
-    border: none;
-    background-color: #a6a6a6;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    padding: 9px;
-    cursor: pointer;
-}
-
-#cambioIdiomaLabelMain {
-    bottom: 15px;
-    position: relative;
-    font-size: 25px;
-}
-
-#CIslider {
-    position: relative;
-    margin-top: 15px;
-    display: inline-block;
-    width: 80px;
-    height: 45px;
-    background-color: #a6a6a6;
-    cursor: pointer;
-    border-radius: 32px;
-}
-
-    #CIslider::after {
-        content: '';
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        border-radius: 20px;
-        background-color: #fff;
-        left: 42.5px;
-        top: 7.5px;
-        transition: all 0.2s;
-    }
-
-input[id='cambioIdioma']:checked + #CIslider::after {
-    transform: translateX(-35px)
-}
-
-.mezclar {
-    position: relative;
-    margin-top: 20px;
-    left: -2.5%;
+body {
+    background-color: #04041f;
 }
 
 button {
+    background-color: #4d4d4d;
+    transition: 0.25s;
     border: none;
-    background-color: #a6a6a6;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    padding: 6px;
-    cursor: pointer;
+    text-align: center;
+    padding: 10px 20px;
 }
 
-#idioma {
-    position: relative;
+button:hover {
+    cursor: pointer;
+    transition: 0.25s;
+    background-color: #808080;
+}
+
+button:disabled {
+    background: #504949;
+    color: #999999;
+    transition: 0s;
+    cursor: default;
+}
+
+.dinamicoMain {
+    position: absolute;
+    transform: translateX(-50%);
+    margin-top: 20px;
     left: 50%;
+    width: 75%;
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-items: center;
+    transition: 0.25s;
+}
+
+.dinamicoMain > div {
+    position: relative;
+
+    background-color: #0b2d1f;
+    padding: 30px;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 30px;
+    place-items: center;
+}
+
+@media screen and (max-width: 900px) {
+    .dinamicoMain {
+    transform: translateX(-50%) translateY(calc(-25%/2)) scale(75%);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .dinamicoMain {
+    transform: translateX(-50%) translateY(calc(-35%/2)) scale(65%);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .dinamicoMain {
+    transform: translateX(-50%) translateY(calc(-45%/2)) scale(55%);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .dinamicoMain {
+    transform: translateX(-50%) translateY(calc(-55%/2)) scale(45%);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .dinamicoMain {
+    transform: translateX(-50%) translateY(calc(-65%/2)) scale(35%);
+    }
+}
+
+.dinamicoMain > div > textarea {
+    height: 30px;
+    width: 250px;
+    resize: none;
+    border: none;
+    overflow-y: hidden;
+    background-color: #4d4d4d;
+}
+
+.dinamicoMain > div > textarea:focus {
+    outline: none;
+    transform: scale(150%);
+}
+
+.centerText {
+    grid-column: 2;
+    grid-row: 2/4;
+}
+
+#menuOptions {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    z-index: 11;
+    width: 125px;
+    height: 70px;
+    background-color: #0959aa;
+    transition: 0s;
+}
+
+#menuBox {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: #0959aa;
+    height: 350px;
+    width: 125px;
+    z-index: 10;
+    transition: 0.15s;
+}
+
+.menuBoxes, #menuBoxButton301 {
+    width: 125px;
+    height: 70px;
+}
+
+.menuBoxButtons {
+    position: absolute;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0;
+}
+
+.menuBoxes > button:hover {
+    cursor: pointer;
+    transition: 0.25s;
+    background-color: #dedede00;
+}
+
+#menuBoxButton202, #menuBoxButton102 {
+    right: 0;
+}
+
+#menuBoxLabel201 {
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+#menuBoxImg101 {
+    position: absolute;
+    left: 50%;
+    top: 105px;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 40px;
+}
+
+#transparentBackground {
+    position: absolute;
+    background-color: rgba(79, 79, 79, 0.5);
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+}
+
+#section_select_label {
+    position: absolute;
+    left: 50%;
+    top: 40%;
     transform: translateX(-50%);
 }
 
-#resultado {
-    border: 3px solid #a6a6a6;
-    border-radius: 16px;
+#section_select_ing {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translateX(-50%);
 }
 
-#dinamico > div > textarea {
-    overflow: hidden;
-    display: inline;
-    margin-left: 5px;
+#section_select_esp {
+    position: absolute;
+    right: 40%;
+    top: 50%;
+    transform: translateX(50%);
+}
+
+#resultadosTextarea {
+    position: absolute;
+    left: 50%;
+    top: 42.5%;
+    transform: translate(-50%, -50%);
+    background-color: #4d4d4d;
+    height: 80% !important;
+    width: 50%;
     resize: none;
-    width: 130px;
-    height: 20px;
-    border: 0px solid;
-    border-bottom: 3px solid #a6a6a6;
+    border: none;
+    text-align: center;
 }
 
-#dinamico > div > textarea:focus {
-    outline: none;
-    position: relative;
-    z-index: 1;
-    transform: scale(1.25);
-    transition: all 0.2s;
+#show_results_close {
+    position: absolute;
+    right: 40%;
+    bottom: 2.5%;
+    transform: translate(50%, -50%);
 }
 
-@media (min-width: 950px) {
-
-    #resultado {
-        resize: none;
-        position: relative;
-        text-align: center;
-        font-size: 20px;
-        margin-top: 20px;
-        left: 50%;
-        transform: translateX(45%);
-    }
-
-    #dinamico {
-        position: absolute;
-        margin-top: 20px;
-        left: 50%;
-        transform: translateX(-90%);
-    }
-
-        #dinamico > div {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            padding-right: 10px;
-            padding-bottom: 30px;
-            padding-top: 10px;
-        }
-
-            #dinamico > div > label, #dinamico > div > button {
-                position: relative;
-                top: 15px;
-                margin-left: 30.5px;
-                margin-right: 26.5px;
-            }
-
-            #dinamico > div:hover {
-                transition: all 0.2s;
-                background-color: #d9d9d9;
-            }
-
-    #fin {
-        position: fixed;
-        top: 300px;
-        right: 50%;
-        transform: translateX(379.5%);
-    }
-
-    #copiar {
-        position: fixed;
-        top: 400px;
-        right: 50%;
-        transform: translateX(400%);
-    }
-}
-
-@media (max-width: 949px) {
-
-    #resultado {
-        resize: none;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        width: 60%;
-        height: 100px;
-        top: 200px;
-    }
-
-    #dinamico {
-        position: relative;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 45px;
-        top: 10px;
-    }
-
-    #dinamico > div {
-        margin-bottom: 10px;
-        padding-bottom: 30px;
-        padding-top: 10px;
-    }
-
-        #dinamico > div > label {
-            position: relative;
-            top: 15px;
-            margin-left: 30px;
-            margin-right: 30px;
-        }
-
-        #dinamico > div:hover {
-            transition: all 0.2s;
-            background-color: #d9d9d9;
-        }
-
-            #dinamico > div > .botonagregar, #dinamico > div > .botoneliminar {
-                position: relative;
-                top: 15px;
-                left: 0px;
-            }
-
-    #fin {
-        position: fixed;
-        left: 30px;
-        top: 575px;
-    }
-
-    #copiar {
-        position: fixed;
-        left: 33.5px;
-        top: 525px;
-    }
+#show_results_copy {
+    position: absolute;
+    left: 40%;
+    bottom: 2.5%;
+    transform: translate(-50%, -50%);
 }

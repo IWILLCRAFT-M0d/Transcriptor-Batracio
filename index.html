@@ -3,44 +3,63 @@
 <head>
     <title>Amphibia Transcripciones</title>
     <meta charset="UTF-8">
-    <script async src="main0.js" charset="UTF-8"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo0.css" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="description" content="Herramienta para acelerar la transcripción de episodio de Amphibia." />
+    <link rel="stylesheet" href="estilo0.css"/>
+    <script>elm=document.getElementsByTagName("html")[0];elm.style.display="none";document.addEventListener("DOMContentLoaded",function(event) {elm.style.display="block";});</script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <script async src="main0.js" charset="UTF-8"></script>
+    <script async src="main1.js" charset="UTF-8"></script>
+    <script async src="main2.js" charset="UTF-8"></script>
 </head>
-<body>
     <center>
         <h1>¡Bienvenidos al transcriptor batracio!</h1>
+        <p>¡La función de cargar lineas puede tener varios problemas! Cualquier problema porfavor reporteselo a Will.</p>
+        <p>Este archivo esta siendo editado.</p>
         <a href="https://amphibia.fandom.com/es/wiki/Portada" target="_blank">(Link a la portada de la wiki)</a>
-        <p>Aquí tendras herramientas para hacer transcripciones de los episodio de la wiki hispana de Amphibia mas comodamente.</p>
-        <div id="CGSM">
-            <label id="linea0-0">
-                <label class="CGS" id="linea0-1" for="linea0">Cargar subtitulos en Inglés</label>
-                <input type="file" accept=".srt" class="linea0" id="linea0"/>
-            </label>
-            <label id="linea1-0">
-                <label class="CGS" id="linea1-1" for="linea1">Cargar subtitulos en Español</label>
-                <input type="file" accept=".srt" class="linea1" id="linea1"/>
-            </label>
-        </div>
-        <label id="cambioIdiomaLabelMain">Cambiar modo de idioma: </label>
-        <label>
-            <input type="checkbox" class="cambioIdioma" onclick="cambiar()" id="cambioIdioma" hidden>
-            <span id="CIslider"></span>
-        </label>
+        <p>Aquí tendras herramientas para hacer transcripciones de los episodios de la wiki hispana de Amphibia más cómodamente.</p>
     </center>
-    <div class="dinamicoss" id="dinamico">
+    <button id="menuOptions">Mostrar opciones</button>
+    <div id="menuBox" style="display: none; opacity: 0;">
+        <div id="menuBox00" class="menuBoxes">
+            <button id="menuBoxButton001" class="menuBoxButtons" onclick="showResultsMode()">Mostrar resultados</button>
+        </div>
+        <div id="menuBox01" class="menuBoxes">
+            <button id="menuBoxButton101" class="menuBoxButtons"><img src="https://img.icons8.com/ios/100/null/chevron-left.png" style="position: absolute; transform:translate(-50%, -50%); left: 17.5px; top: 35px; width: 30px; height: 30px;"/></button>
+            <img id="menuBoxImg101" src="icons/bandera_en.svg">
+            <button id="menuBoxButton102" class="menuBoxButtons"><img src="https://img.icons8.com/ios/100/null/chevron-left.png" style="position: absolute; transform: scaleX(-1) translate(-50%, -50%); right: 17.5px; top: 35px; width: 30px; height: 30px;"/></button>
+        </div>
+        <div id="menuBox02" class="menuBoxes">
+            <button id="menuBoxButton201" class="menuBoxButtons"><img src="https://img.icons8.com/ios/100/null/chevron-left.png" style="position: absolute; transform:translate(-50%, -50%); left: 17.5px; top: 35px; width: 30px; height: 30px;"/></button>
+            <label id="menuBoxLabel201">Dual</label>
+            <button id="menuBoxButton202" class="menuBoxButtons"><img src="https://img.icons8.com/ios/100/null/chevron-left.png" style="position: absolute; transform: scaleX(-1) translate(-50%, -50%); right: 17.5px; top: 35px; width: 30px; height: 30px;"/></button>
+        </div>
+        <div id="menuBox03" class="menuBoxes">
+            <button id="menuBoxButton301" class="menuBoxButtons" onclick="document.getElementById('menuBoxButton311').click();">Cargar archivo</button>
+            <input id="menuBoxButton311" type="file" accept=".srt, .txt" style="display: none;"/>
+        </div>
+    </div>
+    <div class="dinamicoMain" id="dinamico">
         <div>
             <textarea type="text" name="personajes" id="per0" placeholder="Personaje"></textarea>
             <textarea type="text" name="diaEnIng" id="ding0" placeholder="Diálogo en inglés"></textarea>
-            <textarea type="text" name="diaEnEsp" id="desp0" placeholder="Diálogo en español"></textarea><br />
-            <button class="botonagregar" onclick="agre0(this)">Agregar</button><label>Linea numero 1</label><button class="botoneliminar" onclick="elim(this)">Eliminar</button><br>
-            <button class="mezclar" id="mezclarA0" onclick="mezclarA(this)" disabled>Mezclar diálogos Inglés</button><button class="mezclar" id="mezclarB0" onclick="mezclarB(this)" disabled>Mezclar diálogos Español</button>
+            <textarea type="text" name="diaEnEsp" id="desp0" placeholder="Diálogo en español"></textarea>
+            <button class="addBtn" onclick="nuevaCasilla('manual')">Agregar</button><label class="centerText">Línea número 1</label><button class="delBtn" onclick="elim()">Eliminar</button>
+            <button class="mixL" id="mezclarA0" onclick="mixRow('left')">Mezclar diálogos inglés</button><button class="mixR" id="mezclarB0" onclick="mixRow('right')">Mezclar diálogos español</button>
         </div>
     </div>
-    <textarea readonly id="resultado" style="height: 300px; "></textarea>
-    <button type="button" name="afor" id="fin">Mostrar resulados</button>
-    <button type="button" name="copy" id="copiar">Copiar resulados</button>
+    <div id="transparentBackground" style="display: none;">
+        <div id="show_section_select" style="display: none;">
+            <label id="section_select_label">¿En cuál fila querras cargar el texto?</label>
+            <button id="section_select_ing">Inglés</button>
+            <button id="section_select_esp">Español</button>
+        </div>
+        <div id="show_results" style="display: none;">
+            <button id="show_results_copy">Copiar</button>
+            <button id="show_results_close" onclick="closeBackgroundMode()">Cerrar</button>
+            <textarea readonly id="resultadosTextarea" style="height: 300px;"></textarea>
+        </div>
+    </div>
 </body>
 </html>
