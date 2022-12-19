@@ -1,496 +1,267 @@
-// Función que ejecuta el codigo necesario para desplegar resultados
-function mostrarResultados (pers1, espa1, ingl1, pers2, espa2, ingl2) {
-
-    let anneBoonchuy = /(\[{2})?\b(ana|ann(e|a)?)(\s+(boo?(n|b)chuy))?\b((\|.*?)?\]{2})?/gi;
-    let sashaWaybright = /(\[{2})?\bsasha?(\s+((w|g)aybri?g(ht|th)?))?\b((\|.*?)?\]{2})?/gi;
-    let marcyWu = /(\[{2})?\b(mar(c|k)(y|i))(\s+(u?wu))?\b((\|.*?)?\]{2})?/gi;
-    let sprigPlantar = /(\[{2})?\b(s?pr(i|o)?n?g)(\s+(pla?nt(a|e)?r))?\b((\|.*?)?\]{2})?/gi;
-    let pollyPlantar = /(\[{2})?\b(p?olly|poll?y)(\s+(pla?nt(a|e)?r))?\b((\|.*?)?\]{2})?/gi;
-    let hopPop = /(\[{2})?\b(hop|abu|pap(a|á))\s+(p|h)op(\s+(pla?nt(a|e)?r))?\b((\|.*?)?\]{2})?/gi;
-    let ivySundew = /(\[{2})?\b(iv(i|y)|sol)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?\b((\|.*?)?\]{2})?/gi;
-    let feliciaSundew = /(\[{2})?\b(felic(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?\b((\|.*?)?\]{2})?/gi;
-    let sylviaSundew = /(\[{2})?\b(s(y|i)lv(i|í)a)(\s+((sundew|sun|dew)|roc((i|í)?o|(i|í)o?)))?\b((\|.*?)?\]{2})?/gi;
-    let olivia = /(\[{2})?\b((lady|se(n|ñ)orita)\s+)?(oliv((i|í)?a|(i|í)a?))\b((\|.*?)?\]{2})?/gi;
-    let yunan = /(\[{2})?\b((general)\s+)?(ju(v|b)ina|yunn?an)\b((\|.*?)?\]{2})?/gi;
-    let andrias = /(\[{2})?\b((rey)\s+)?((an)?drias)(\s+(lev(ia|ai)(than|tan)))?\b((\|.*?)?\]{2})?/gi;
-    let grime = /(\[{2})?\b((cap(tain|it(á|a))n)\s+)?(grime(sy)?|graim|mugr(e|i)|grimos(o|in)|grimoth?y|mugrer?to)\b((\|.*?)?\]{2})?/gi;
-    let percy = /(\[{2})?\bperc(y|i)\b((\|.*?)?\]{2})?/gi;
-    let braddock = /(\[{2})?\bbradd?ock\b((\|.*?)?\]{2})?/gi;
-    let bog = /(\[{2})?\bbog\b((\|.*?)?\]{2})?/gi;
-
-    if (pers2 === 0 && ingl2 > 0 && espa2 === 0) {
-        var personajeInput = 'ingl1';
-        var personajeText = ingl1;
-    } else if (pers2 === 0 && ingl2 === 0 && espa2 > 0) {
-        var personajeInput = 'espa1';
-        var personajeText = espa1;
-    } else {
-        var personajeInput = 'pers1';
-        var personajeText = pers1;
+// Reacomodación de ids (muchas gracias a LooperLane por ayudarme a solucionarlo)
+function recalcularIds() {
+    for (let i = 0; i < ids.length; i++) {
+        ids[i].children[0].id = 'per' + i;
+        ids[i].children[1].id = 'ding' + i;
+        ids[i].children[2].id = 'desp' + i;
+        ids[i].children[6].id = 'mezclarA' + i;
+        ids[i].children[7].id = 'mezclarB' + i;
+        if(i % 2 == 0) {
+            ids[i].removeAttribute('style');
+        } else {
+            ids[i].style.background = '#2d0b1c';
+        }
+        
     }
-
-    switch (true) {
-        //Humanos
-        case anneBoonchuy.test(personajeText):
-            switch (personajeInput) {
-                case 'pers1':
-                    pers1 = pers1.replace(anneBoonchuy, '[[Anne Boonchuy|Anne]]');
-                    break
-
-                case 'ingl1':
-                    ingl1 = ingl1.replace(anneBoonchuy, '[[Anne Boonchuy|Anne]]');
-                    break
-
-                case 'espa1':
-                    espa1 = espa1.replace(anneBoonchuy, '[[Anne Boonchuy|Anne]]');
-                    break
-            }
-
-        case sashaWaybright.test(personajeText):
-            switch (personajeInput) {
-                case 'pers1':
-                    pers1 = pers1.replace(sashaWaybright, '[[Sasha Waybright|Sasha]]');
-                    break
-
-                case 'ingl1':
-                    ingl1 = ingl1.replace(sashaWaybright, '[[Sasha Waybright|Sasha]]');
-                    break
-
-                case 'espa1':
-                    espa1 = espa1.replace(sashaWaybright, '[[Sasha Waybright|Sasha]]');
-                    break
-            }
-
-        case marcyWu.test(personajeText):
-            switch (personajeInput) {
-                case 'pers1':
-                    pers1 = pers1.replace(marcyWu, '[[Marcy Wu|Marcy]]');
-                    break
-
-                case 'ingl1':
-                    ingl1 = ingl1.replace(marcyWu, '[[Marcy Wu|Marcy]]');
-                    break
-
-                case 'espa1':
-                    espa1 = espa1.replace(marcyWu, '[[Marcy Wu|Marcy]]');
-                    break
-            }
-
-        //Ranas: familia Plantar
-        case sprigPlantar.test(personajeText):
-            switch (personajeInput) {
-                case 'pers1':
-                    pers1 = pers1.replace(sprigPlantar, '[[Sprig Plantar|Sprig]]');
-                    break
-
-                case 'ingl1':
-                    ingl1 = ingl1.replace(sprigPlantar, '[[Sprig Plantar|Sprig]]');
-                    break
-
-                case 'espa1':
-                    espa1 = espa1.replace(sprigPlantar, '[[Sprig Plantar|Sprig]]');
-                    break
-            }
-        
-        case pollyPlantar.test(personajeText):
-            switch (personajeInput) {
-                case 'pers1':
-                    pers1 = pers1.replace(pollyPlantar, '[[Polly Plantar|Polly]]');
-                    break
-
-                case 'ingl1':
-                    ingl1 = ingl1.replace(pollyPlantar, '[[Polly Plantar|Polly]]');
-                    break
-
-                case 'espa1':
-                    espa1 = espa1.replace(pollyPlantar, '[[Polly Plantar|Polly]]');
-                    break
-            }
-
-        case hopPop.test(personajeText):
-            switch (langVal) {
-                
-                case 1:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(hopPop, '[[Abu Hop Plantar|Hop Pop]]');
-                            break
-        
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(hopPop, '[[Abu Hop Plantar|Hop Pop]]');
-                            break
-        
-                        case 'espa1':
-                            espa1 = espa1.replace(hopPop, '[[Abu Hop Plantar|Hop Pop]]');
-                            break
-                    }
-                    break
-
-                case 2:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(hopPop, '[[Abu Hop Plantar|Abu Hop]]');
-                            break
-        
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(hopPop, '[[Abu Hop Plantar|Abu Hop]]');
-                            break
-        
-                        case 'espa1':
-                            espa1 = espa1.replace(hopPop, '[[Abu Hop Plantar|Abu Hop]]');
-                            break
-                    }
-                    break
-
-                case 3:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(hopPop, '[[Abu Hop Plantar|Papá Hop]]');
-                            break
-        
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(hopPop, '[[Abu Hop Plantar|Papá Hop]]');
-                            break
-        
-                        case 'espa1':
-                            espa1 = espa1.replace(hopPop, '[[Abu Hop Plantar|Papá Hop]]');
-                            break
-                    }
-                    break
-            }
-
-        //Ranas: familia Sundew/Rocío
-        case ivySundew.test(personajeText):
-            switch (langVal) {
-                case 2:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(ivySundew, '[[Sol Rocío|Sol]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(ivySundew, '[[Sol Rocío|Sol]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(ivySundew, '[[Sol Rocío|Sol]]');
-                            break
-                    }
-                    break
-
-                default:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(ivySundew, '[[Sol Rocío|Ivy]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(ivySundew, '[[Sol Rocío|Ivy]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(ivySundew, '[[Sol Rocío|Ivy]]');
-                            break
-                    }
-                    break
-            }
-
-        case feliciaSundew.test(personajeText):
-            switch (langVal) {
-                case 2:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(feliciaSundew, '[[Felicía Rocío|Felicía]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(feliciaSundew, '[[Felicía Rocío|Felicía]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(feliciaSundew, '[[Felicía Rocío|Felicía]]');
-                            break
-                    }
-                    break
-
-                default:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(feliciaSundew, '[[Felicía Rocío|Felicia]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(feliciaSundew, '[[Felicía Rocío|Felicia]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(feliciaSundew, '[[Felicía Rocío|Felicia]]');
-                            break
-                    }
-                    break
-            }
-
-        case sylviaSundew.test(personajeText):
-            switch (true) {
-                case 1:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(sylviaSundew, '[[Silvía Rocío|Sylvia]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(sylviaSundew, '[[Silvía Rocío|Sylvia]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(sylviaSundew, '[[Silvía Rocío|Sylvia]]');
-                            break
-                    }
-                    break
-
-                case 2:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(sylviaSundew, '[[Silvía Rocío|Silvía]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(sylviaSundew, '[[Silvía Rocío|Silvía]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(sylviaSundew, '[[Silvía Rocío|Silvía]]');
-                            break
-                    }
-                    break
-
-                case 3:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(sylviaSundew, '[[Silvía Rocío|Silvia]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(sylviaSundew, '[[Silvía Rocío|Silvia]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(sylviaSundew, '[[Silvía Rocío|Silvia]]');
-                            break
-                    }
-                    break
-                }
-
-        //Tritones
-
-        case olivia.test(personajeText):
-            switch (personajeInput) {
-                case 'pers1':
-                    pers1 = pers1.replace(olivia, '[[Olivia]]');
-                    break
-
-                case 'ingl1':
-                    ingl1 = ingl1.replace(olivia, '[[Olivia]]');
-                    break
-
-                case 'espa1':
-                    espa1 = espa1.replace(olivia, '[[Olivia]]');
-                    break
-                }
-
-        case yunan.test(personajeText):
-            switch (langVal) {
-                case 2:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(yunan, '[[General Juvina|Juvina]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(yunan, '[[General Juvina|Juvina]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(yunan, '[[General Juvina|Juvina]]');
-                            break
-                    }
-                    break
-
-                default:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(yunan, '[[General Juvina|Yunan]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(yunan, '[[General Juvina|Yunan]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(yunan, '[[General Juvina|Yunan]]');
-                            break
-                    }
-                    break
-            }
-
-        case andrias.test(personajeText):
-            switch (personajeInput) {
-                case 'pers1':
-                    pers1 = pers1.replace(andrias, '[[Rey Andrias]]');
-                    break
-
-                case 'ingl1':
-                    ingl1 = ingl1.replace(andrias, '[[Rey Andrias]]');
-                    break
-
-                case 'espa1':
-                    espa1 = espa1.replace(andrias, '[[Rey Andrias]]');
-                    break
-            }
-
-            //Ejercito sapo
-
-        case grime.test(personajeText):
-            switch (langVal) {
-                case 1:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(grime, '[[Capitán Mugre|Grime]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(grime, '[[Capitán Mugre|Grime]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(grime, '[[Capitán Mugre|Grime]]');
-                            break
-                    }
-                    break
-
-                case 2:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(grime, '[[Capitán Mugre|Mugre]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(grime, '[[Capitán Mugre|Mugre]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(grime, '[[Capitán Mugre|Mugre]]');
-                            break
-                    }
-                    break
-
-                case 3:
-                    switch (personajeInput) {
-                        case 'pers1':
-                            pers1 = pers1.replace(grime, '[[Capitán Mugre|Grimoso]]');
-                            break
-
-                        case 'ingl1':
-                            ingl1 = ingl1.replace(grime, '[[Capitán Mugre|Grimoso]]');
-                            break
-
-                        case 'espa1':
-                            espa1 = espa1.replace(grime, '[[Capitán Mugre|Grimoso]]');
-                            break
-                    }
-                    break
-                }
-
-        case percy.test(personajeText):
-            switch (personajeInput) {
-                case 'pers1':
-                    pers1 = pers1.replace(percy, '[[Percy]]');
-                    break
-
-                case 'ingl1':
-                    ingl1 = ingl1.replace(percy, '[[Percy]]');
-                    break
-
-                case 'espa1':
-                    espa1 = espa1.replace(percy, '[[Percy]]');
-                    break
-            }
-
-        case braddock.test(personajeText):
-            switch (personajeInput) {
-                case 'pers1':
-                    pers1 = pers1.replace(braddock, '[[Braddock]]');
-                    break
-
-                case 'ingl1':
-                    ingl1 = ingl1.replace(braddock, '[[Braddock]]');
-                    break
-
-                case 'espa1':
-                    espa1 = espa1.replace(braddock, '[[Braddock]]');
-                    break
-            }
-
-        case bog.test(personajeText):
-            switch (personajeInput) {
-                case 'pers1':
-                    pers1 = pers1.replace(bog, '[[Bog]]');
-                    break
-
-                case 'ingl1':
-                    ingl1 = ingl1.replace(bog, '[[Bog]]');
-                    break
-
-                case 'espa1':
-                    espa1 = espa1.replace(bog, '[[Bog]]');
-                    break
-            }
+    for (let i = 0; i < ids.length; i++) {
+        let y = i + 1;
+        ids[i].children[4].innerHTML = 'Línea número ' + y;
     }
+};
 
+// Función para crear nueva casilla
+// columType tiene dos opciones, 'manual' y 'auto'
+function newBox(boxType) {
+    let div = document.createElement('div');
     switch (modeVal) {
         case 1:
-            if (pers2 === 0 && espa2 === 0 && ingl2 === 0) {
-                //error
-            }
-            else if ((pers2 > 0 && espa2 === 0 && ingl2 === 0) || (pers2 === 0 && espa2 > 0 && ingl2 === 0) || (pers2 === 0 && espa2 === 0 && ingl2 > 0)) {
-                if (pers2 > 0) {
-                    document.getElementById('resultadosTextarea').value += "{{DTE|||" + pers1 + "}}" + '\n';
-                }
-                else if (espa2 > 0) {
-                    document.getElementById('resultadosTextarea').value += "{{DTE|||" + espa1 + "}}" + '\n';
-                }
-                else if (ingl2 > 0) {
-                    document.getElementById('resultadosTextarea').value += "{{DTE|||" + ingl1 + "}}" + '\n';
-                }
-            }
-            else if ((pers2 > 0 && espa2 > 0 && ingl2 === 0) || (pers2 > 0 && espa2 === 0 && ingl2 > 0)) {
-                if (pers2 > 0 && espa2 > 0) {
-                    document.getElementById('resultadosTextarea').value += "{{DTE||" + pers1 + "|" + espa1 + "}}" + '\n';
-                }
-                else if (pers2 > 0 && ingl2 > 0) {
-                    document.getElementById('resultadosTextarea').value += "{{DTE||" + pers1 + "|" + ingl1 + "}}" + '\n';
-                }
-            }
-            else if (pers2 === 0 && espa2 > 0 && ingl2 > 0) {
-                //error
-            }
-            else if (pers2 > 0 && espa2 > 0 && ingl2 > 0) {
-                document.getElementById('resultadosTextarea').value += "{{DTE|" + pers1 + "|" + ingl1 + "|" + espa1 + "}}" + '\n';
-            }
+            div.innerHTML =`<textarea type="text" name="personajes" id="" placeholder="Personaje"></textarea>
+<textarea type="text" name="diaEnIng" id="" placeholder="Diálogo en inglés"></textarea>
+<textarea type="text" name="diaEnEsp" id="" placeholder="Diálogo en español"></textarea>
+<button class="addBtn" onclick="newBox('manual')">Agregar</button><label class="centerText"></label><button class="delBtn" onclick="deleteBox()">Eliminar</button>
+<button class="mixL" id="" onclick="mixRow('left')" disabled>Mezclar diálogos Inglés</button><button class="mixR" id="" onclick="mixRow('right')" disabled>Mezclar diálogos Español</button>`;
             break
 
         case 2:
-            if (pers2 > 0 && ingl2 > 0) {
-                document.getElementById('resultadosTextarea').value += "{{DT|" + pers1 + "|" + ingl1 + "}}" + '\n';
-            }
-
-            else if (pers2 > 0 && ingl2 === 0) {
-                document.getElementById('resultadosTextarea').value += "{{DT||" + pers1 + "}}" + '\n';
-            }
-
-            else if (pers2 === 0 && ingl2 > 0) {
-                document.getElementById('resultadosTextarea').value += "{{DT||" + ingl1 + "}}" + '\n';
-            }
+            div.innerHTML =`<textarea type="text" name="personajes" id="" placeholder="Personaje"></textarea>
+<textarea type="text" name="diaEnIng" id="" style="grid-column: 2 / 4; width: 500px;" placeholder="Diálogo"></textarea>
+<textarea type="text" name="diaEnEsp" id="" placeholder="Diálogo en español" style="display: none;"></textarea>
+<button class="addBtn" onclick="newBox('manual')" style="grid-area: 2 / 1;">Agregar</button><label class="centerText" style="grid-area: 2 / 2;"></label><button class="delBtn" onclick="deleteBox()" style="grid-area: 2 / 3;">Eliminar</button>
+<button class="mixL" id="" onclick="mixRow('left')" style="grid-area: 3 / 2;">Mezclar diálogos</button><button class="mixR" id="" onclick="mixRow('right')" style="display: none">Mezclar diálogos Español</button>`;
             break
     }
+
+    switch (boxType) {
+        case 'manual':
+            let idGet = event.target.parentElement;
+            let idValueGet = idGet.children[0].id.match(/\d+/);
+            let idValue = parseInt(idValueGet) + 1;
+            din.insertBefore(div, din.children[idValue]);
+            recalcularIds();
+
+            switch (din.childElementCount - 1) {
+                case 1:
+                    document.getElementById('mezclarA0').removeAttribute('disabled', '');
+                    document.getElementById('mezclarB0').removeAttribute('disabled', '');
+                    document.getElementById('mezclarA1').setAttribute('disabled', '');
+                    document.getElementById('mezclarB1').setAttribute('disabled', '');
+                    break
+
+                case 2:
+                    document.getElementById('mezclarA1').removeAttribute('disabled', '');
+                    document.getElementById('mezclarB1').removeAttribute('disabled', '');
+                    document.getElementById('mezclarA2').setAttribute('disabled', '');
+                    document.getElementById('mezclarB2').setAttribute('disabled', '');
+                    break
+
+                default:
+                    document.getElementById('mezclarA' + idValue).removeAttribute('disabled', '');
+                    document.getElementById('mezclarB' + idValue).removeAttribute('disabled', '');
+                    document.getElementById('mezclarA' + (din.childElementCount - 2)).removeAttribute('disabled', '');
+                    document.getElementById('mezclarB' + (din.childElementCount - 2)).removeAttribute('disabled', '');
+                    document.getElementById('mezclarA' + (din.childElementCount - 1)).setAttribute('disabled', '');
+                    document.getElementById('mezclarB' + (din.childElementCount - 1)).setAttribute('disabled', '');
+                    break
+                }
+            break
+
+        case 'auto':
+            din.appendChild(div)
+            recalcularIds();
+            break
+        
+        default:
+            console.log(`¡Error! ¡Will haz tu trabajo bien! Se te ha olvidado en alguna parte del código definir el para que vas a usar la función de 'newBox'.`)
+            break
+        }
+}
+
+// Función de elminar lineas y reducir el tamaño del textarea
+function deleteBox() {
+    let dinTotal = din.childElementCount - 1;
+    let dinTotalAlt = din.childElementCount - 2;
+    let idGet = event.target.parentElement;
+    let idValue = parseInt(idGet.children[0].id.match(/\d+/));
+
+    if (dinTotal > 0 && idValue > 0 && idValue < dinTotal) {
+        din.removeChild(idGet);
+        recalcularIds();
+        document.getElementById('mezclarA' + dinTotalAlt).setAttribute('disabled', '');
+        document.getElementById('mezclarB' + dinTotalAlt).setAttribute('disabled', '');
+    }
+
+    else if (dinTotal > 0 && idValue === 0) {
+        din.removeChild(idGet);
+        recalcularIds();
+    }
+
+    else if (dinTotal > 0 && idValue === dinTotal) {
+        din.removeChild(idGet);
+        document.getElementById('mezclarA' + dinTotalAlt).setAttribute('disabled', '');
+        document.getElementById('mezclarB' + dinTotalAlt).setAttribute('disabled', '');
+    }
+
+    else {
+        document.getElementById('per0').value = '';
+        document.getElementById('ding0').value = '';
+        document.getElementById('desp0').value = '';
+    }
+};
+
+// Deshabilita la tecla 'Enter' dentro de los textarea y adapta el tamaño de los textarea dependiendo del texto
+function OnInput() {this.style.height = 0; this.style.height = (this.scrollHeight + 6) + 'px';}
+din.addEventListener('keydown', () => {
+    let idGet = event.target
+    if (event.keyCode === 13) {event.preventDefault()}
+    idGet.setAttribute('style', 'height:' + (idGet.scrollHeight) + 'px;');
+    idGet.addEventListener('input', OnInput, false);
+})
+
+// Reacción en caso de precionar enter en una casilla
+din.addEventListener('keyup', (e) => {
+    let idGet = parseInt(event.target.id.match(/\d+/))
+    if (e.keyCode === 13) {
+    switch (modeVal) {
+        case 1:
+        switch (event.target.id) {
+            case 'per' + idGet:
+                document.getElementById('ding' + idGet).focus();
+                break
+
+            case 'ding' + idGet:
+                document.getElementById('desp' + idGet).focus();
+                break
+
+            case 'desp' + idGet:
+                if (document.getElementById('per' + idGet).value.length === 0 && document.getElementById('ding' + idGet).value.length === 0 && document.getElementById('desp' + idGet).value.length === 0) {
+                    document.getElementById('per' + idGet).focus();
+                } else if ((idGet + 1) < din.childElementCount) {
+                    document.getElementById('per' + (idGet+1)).focus();
+                } else {
+                    newBox('manual');
+                    document.getElementById('per' + (din.childElementCount-1)).focus()
+                }
+                break
+        }
+            break
+
+        case 2:
+            switch (event.target.id) {
+                case 'per' + idGet:
+                    document.getElementById('ding' + idGet).focus();
+                    break
+
+                case 'ding' + idGet:
+                    if (document.getElementById('per' + idGet).value.length === 0 && document.getElementById('ding' + idGet).value.length === 0) {
+                        document.getElementById('per' + idGet).focus();
+                    } else {
+                        newBox('manual');
+                        document.getElementById('per' + (din.childElementCount-1)).focus()
+                    }
+                    break
+            }
+            break
+}}});
+
+// Mezcla las casillas dependiendo del lado aplicado en la plantilla
+// columType tiene dos opciones con dos variantes cada una, 'left' o 'izquierda' y 'right' o 'derecha'
+function mixRow(sideRow) {
+    let dinTotal = din.childElementCount - 1;
+    
+    let idGet = event.target.parentElement;
+    let idValue0 = parseInt(idGet.children[0].id.match(/\d+/));
+    let idValue1 = idValue0 + 1;
+
+    let dingValue0 = document.getElementById('ding' + idValue0);
+    let dingValue1 = document.getElementById('ding' + idValue1);
+
+    let despValue0 = document.getElementById('desp' + idValue0);
+    let despValue1 = document.getElementById('desp' + idValue1);
+    let divM = document.getElementById('per' + idValue1).parentNode;
+
+    switch (sideRow) {
+        case 'left':
+        case 'izquierda':
+            if (despValue1.value.length === 0) {
+                if (dingValue1.value.length > 0) {
+                    if (dingValue0.value.length === 0) {
+                        dingValue0.value += dingValue1.value;
+                    } else {
+                        dingValue0.value += ' ' + dingValue1.value;
+                    }
+                    dingValue0.style.height = '30px';
+                    dingValue0.setAttribute('style', 'height: ' + (dingValue0.scrollHeight + 5) + 'px;');
+                    dingValue0.addEventListener('input', OnInput, false);
+                    if (dingValue0.style.height === '35px') {dingValue0.style.height = '30px';}
+                }
+                din.removeChild(divM);
+                if (dinTotal === 1) {
+                    document.getElementById('mezclarA0').setAttribute('disabled', '');
+                    document.getElementById('mezclarB0').setAttribute('disabled', '');
+                } else if (idValue0 === (dinTotal-1)) {
+                    document.getElementById('mezclarA' + (dinTotal-1)).setAttribute('disabled', '');
+                    document.getElementById('mezclarB' + (dinTotal-1)).setAttribute('disabled', '');
+                }
+            }
+            else {
+                if (dingValue1.value.length > 0) {
+                    dingValue0.value += ' ' + dingValue1.value;
+                    dingValue1.value = '';
+                    dingValue0.style.height = '30px';
+                    dingValue0.setAttribute('style', 'height: ' + (dingValue0.scrollHeight + 5) + 'px;');
+                    dingValue0.addEventListener('input', OnInput, false);
+                    if (dingValue0.style.height === '35px') {dingValue0.style.height = '30px';}
+                }
+            }
+            break
+        case 'right':
+        case 'derecha':
+            if (dingValue1.value.length === 0) {
+                if (despValue1.value.length > 0) {
+                    if (despValue0.value.length === 0) {
+                        despValue0.value += despValue1.value;
+                    } else {
+                        despValue0.value += ' ' + despValue1.value;
+                    }
+                    despValue0.style.height = '30px';
+                    despValue0.setAttribute('style', 'height: ' + (despValue0.scrollHeight + 5) + 'px;');
+                    despValue0.addEventListener('input', OnInput, false);
+                    if (despValue0.style.height === '35px') {despValue0.style.height = '30px';}
+                }
+                din.removeChild(divM);
+                if (dinTotal === 1) {
+                    document.getElementById('mezclarA0').setAttribute('disabled', '');
+                    document.getElementById('mezclarB0').setAttribute('disabled', '');
+                } else if (idValue0 === (dinTotal-1)) {
+                    document.getElementById('mezclarA' + (dinTotal-1)).setAttribute('disabled', '');
+                    document.getElementById('mezclarB' + (dinTotal-1)).setAttribute('disabled', '');
+                }
+            }
+            else {
+                if (despValue1.value.length > 0) {
+                    despValue0.value += ' ' + despValue1.value;
+                    despValue1.value = '';
+                    despValue0.style.height = '30px';
+                    despValue0.setAttribute('style', 'height: ' + (despValue0.scrollHeight + 5) + 'px;');
+                    despValue0.addEventListener('input', OnInput, false);
+                    if (despValue0.style.height === '35px') {despValue0.style.height = '30px';}
+                }
+            }
+            break
+        
+        default:
+            console.log(`¡Error! ¡Will haz tu trabajo bien! Se te ha olvidado en alguna parte del código definir el para que vas a usar la función de "mixRow".`)
+            break
+    }
+    recalcularIds()
 }

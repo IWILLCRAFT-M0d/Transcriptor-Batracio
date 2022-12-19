@@ -167,7 +167,7 @@ button:disabled {
 }
 
 #transparentBackground {
-    position: absolute;
+    position: fixed;
     background-color: rgba(79, 79, 79, 0.5);
     top: 0;
     width: 100%;

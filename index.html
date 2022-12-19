@@ -23,7 +23,7 @@
     <button id="menuOptions">Mostrar opciones</button>
     <div id="menuBox" style="display: none; opacity: 0;">
         <div id="menuBox00" class="menuBoxes">
-            <button id="menuBoxButton001" class="menuBoxButtons" onclick="showResultsMode()">Mostrar resultados</button>
+            <button id="menuBoxButton001" class="menuBoxButtons" onclick="resultsMode()">Mostrar resultados</button>
         </div>
         <div id="menuBox01" class="menuBoxes">
             <button id="menuBoxButton101" class="menuBoxButtons"><img src="https://img.icons8.com/ios/100/null/chevron-left.png" style="position: absolute; transform:translate(-50%, -50%); left: 17.5px; top: 35px; width: 30px; height: 30px;"/></button>
@@ -45,7 +45,7 @@
             <textarea type="text" name="personajes" id="per0" placeholder="Personaje"></textarea>
             <textarea type="text" name="diaEnIng" id="ding0" placeholder="Diálogo en inglés"></textarea>
             <textarea type="text" name="diaEnEsp" id="desp0" placeholder="Diálogo en español"></textarea>
-            <button class="addBtn" onclick="nuevaCasilla('manual')">Agregar</button><label class="centerText">Línea número 1</label><button class="delBtn" onclick="elim()">Eliminar</button>
+            <button class="addBtn" onclick="newBox('manual')">Agregar</button><label class="centerText">Línea número 1</label><button class="delBtn" onclick="deleteBox()">Eliminar</button>
             <button class="mixL" id="mezclarA0" onclick="mixRow('left')">Mezclar diálogos inglés</button><button class="mixR" id="mezclarB0" onclick="mixRow('right')">Mezclar diálogos español</button>
         </div>
     </div>
@@ -57,8 +57,8 @@
         </div>
         <div id="show_results" style="display: none;">
             <button id="show_results_copy">Copiar</button>
-            <button id="show_results_close" onclick="closeBackgroundMode()">Cerrar</button>
-            <textarea readonly id="resultadosTextarea" style="height: 300px;"></textarea>
+            <button id="show_results_close" onclick="closeTransBack()">Cerrar</button>
+            <textarea readonly id="resultadosTextarea"></textarea>
         </div>
     </div>
 </body>
